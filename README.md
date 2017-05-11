@@ -2,7 +2,10 @@
 
 Standardizing sign language for STEM terms. In a field where new technologies and technical terms are always emerging, OpenSigns will be a place where d/Deaf/HoH, interpreters and ASL students can find ASL signs for STEM terms. Led by [@meltedspork](https://github.com/meltedspork) and internet friends.
 
-# Contributors
+### Discussion Summary
+Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, we summarize the discussions, which can be viewed at [/meetings](https://github.com/deafchi/opensigns-web/tree/master/meetings)
+
+### Contributors
 - [@meltedspork](https://github.com/meltedspork) - Lead Product / Development (Frontend + Backend)
 - [@kratsg](https://github.com/kratsg) - Database + Development (Primarily Backend)
 - [@msmanak](https://github.com/msmanak) - Design / User Experience
