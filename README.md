@@ -7,7 +7,7 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 
 ### Contributors
 - [@meltedspork](https://github.com/meltedspork) - Lead Product / Fullstack Development
-- [@kratsg](https://github.com/kratsg) - Database + Development (Primarily Backend)
+- [@kratsg](https://github.com/kratsg) - Database / Fullstack Development
 - [@msmanak](https://github.com/msmanak) - Interaction Design / User Experience
 - [@nickttng](https://github.com/nickttng) - Frontend Design / Project Facilitator 
 - Sandy Tiania - Consultant
