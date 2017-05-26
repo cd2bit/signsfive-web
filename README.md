@@ -13,6 +13,6 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 - Sandy Tiania - User Experience
 - [@esputt93](https://github.com/esputt93) - User Experience / Cultural Anthropology
 - [@greenteawarrior](https://github.com/greenteawarrior) - Interaction Design / HCI
-- [@rgoodie](https://github.com/rgoodie) - Interpreter / Consultant
+- [@rgoodie](https://github.com/rgoodie) - Frontend Development /Interpreting Consultant
 
 
