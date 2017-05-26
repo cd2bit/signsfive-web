@@ -6,10 +6,10 @@ We're working to make the search for STEM (Science, Technology, Engineering, Mat
 Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, we summarize the discussions, which can be viewed at [/meetings](https://github.com/deafchi/opensigns-web/tree/master/meetings)
 
 ### Contributors
-- [@meltedspork](https://github.com/meltedspork) - Lead Product / Development (Frontend + Backend)
+- [@meltedspork](https://github.com/meltedspork) - Lead Product / Fullstack Development
 - [@kratsg](https://github.com/kratsg) - Database + Development (Primarily Backend)
 - [@msmanak](https://github.com/msmanak) - Design / User Experience
-- [@nickttng](https://github.com/nickttng) - Frontend Design / Project Management 
+- [@nickttng](https://github.com/nickttng) - Frontend Design / Project Facilitator 
 - Sandy Tiania - User Experience
 - [@esputt93](https://github.com/esputt93) - User Experience / Cultural Anthropology
 - [@greenteawarrior](https://github.com/greenteawarrior) - Interaction Design / HCI
