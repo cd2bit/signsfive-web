@@ -5,7 +5,7 @@ We're working to make the search for STEM (Science, Technology, Engineering, Mat
 ### Discussion Summary
 Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, we summarize the discussions, which can be viewed at [/meetings](https://github.com/deafchi/opensigns-web/tree/master/meetings)
 
-### Contributors
+### SignsFive Team
 
 | Person                                                | Role                                          |
 | ----------------------------------------------------- | --------------------------------------------- |
@@ -18,4 +18,4 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 | [Emily Wang](https://github.com/greenteawarrior)      | Interaction Design / HCI                      |
 | [Richard Goodrow](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant|
 
-
+**Contributors (Current and Past):** Jimmy Waller
