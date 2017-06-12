@@ -7,15 +7,14 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 
 ### SignsFive Team
 
-| Person                                                | Role                                          |
-| ----------------------------------------------------- | --------------------------------------------- |
-| [Jason Salerno](https://github.com/meltedspork)       | Lead Product / Fullstack Development          |
-| [Giordon Stark](https://github.com/kratsg)            | Fullstack Development                         |
-| [Melissa Manak](https://github.com/msmanak)           | Interaction Design / User Experience          |
-| [Nick Ng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         |
-| Sandy Tiania                                          | Consultant                                    |
-| [Elena Putt](https://github.com/esputt93)             | User Experience / Cultural Anthropology       |
-| [Emily Wang](https://github.com/greenteawarrior)      | Interaction Design / HCI                      |
-| [Richard Goodrow](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant|
+| Person                                                | Role                                          | Background                                    |
+| ----------------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| [Jason Salerno](https://github.com/meltedspork)       | Fullstack Development / Lead Product          | DeafBlind                                     |
+| [Giordon Stark](https://github.com/kratsg)            | Fullstack Development                         | Deaf/Hard-of-Hearing                          |
+| [Melissa Manak](https://github.com/msmanak)           | Interaction Design / User Experience          | Deaf/Hard-of-Hearing                          |
+| [Nick Ng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         | Deaf/Hard-of-Hearing                          |
+| Sandy Tiania                                          | Consultant                                    | Deaf/Hard-of-Hearing                          |
+| [Emily Wang](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
+| [Richard Goodrow](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
 
-**Contributors (Current and Past):** Jimmy Waller
+**Contributors (Current and Past):** Jimmy Waller (Advisor), [Elena Putt](https://github.com/esputt93) (User Experience / Cultural Anthropology)
