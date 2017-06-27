@@ -9,12 +9,12 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 
 | Person                                                | Role                                          | Background                                    |
 | ----------------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| [Jason Salerno](https://github.com/meltedspork)       | Fullstack Development / Lead Product          | DeafBlind                                     |
-| [Giordon Stark](https://github.com/kratsg)            | Fullstack Development                         | Deaf/Hard-of-Hearing                          |
-| [Melissa Manak](https://github.com/msmanak)           | Interaction Design / User Experience          | Deaf/Hard-of-Hearing                          |
-| [Nick Ng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         | Deaf/Hard-of-Hearing                          |
+| [@meltedspork](https://github.com/meltedspork)       | Fullstack Development / Lead Product          | DeafBlind                                     |
+| [@kratsg](https://github.com/kratsg)            | Fullstack Development                         | Deaf/Hard-of-Hearing                          |
+| [@msmanak](https://github.com/msmanak)           | Interaction Design / User Experience          | Deaf/Hard-of-Hearing                          |
+| [@nickttng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         | Deaf/Hard-of-Hearing                          |
 | Sandy Tiania                                          | Consultant                                    | Deaf/Hard-of-Hearing                          |
-| [Emily Wang](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
-| [Richard Goodrow](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
+| [@greenteawarrior](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
+| [@rgoodie](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
 
-**Contributors (Current and Past):** Jimmy Waller (Advisor), [Elena Putt](https://github.com/esputt93) (User Experience / Cultural Anthropology)
+**Contributors (Current and Past):** Jimmy Waller (Advisor), [@esputt93](https://github.com/esputt93) (User Experience / Cultural Anthropology)
