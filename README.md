@@ -9,12 +9,14 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 
 | Person                                                | Role                                          | Background                                    |
 | ----------------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| [@meltedspork](https://github.com/meltedspork)       | Fullstack Development / Lead Product          | DeafBlind                                     |
+| Jason Salerno [@meltedspork](https://github.com/meltedspork)       | Fullstack Development / Lead Product          | DeafBlind                                     |
 | [@kratsg](https://github.com/kratsg)            | Fullstack Development                         | Deaf/Hard-of-Hearing                          |
 | [@msmanak](https://github.com/msmanak)           | Interaction Design / User Experience          | Deaf/Hard-of-Hearing                          |
 | [@nickttng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         | Deaf/Hard-of-Hearing                          |
 | Sandy Tiania                                          | Consultant                                    | Deaf/Hard-of-Hearing                          |
 | [@greenteawarrior](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
-| [@rgoodie](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
+| [@rgoodie](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing 
+| Suzanne Salerno        | Scrum Master / Interpreting Consultant | Hearing 
+       
 
 **Contributors (Current and Past):** Jimmy Waller (Advisor), [@esputt93](https://github.com/esputt93) (User Experience / Cultural Anthropology)
