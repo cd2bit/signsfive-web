@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import marked from "marked";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { markdown: null };
+  }
+
+  componentWillMount() {
+    const readmePath = require('./TEAM.md');
+  
+    fetch(readmePath)
+      .then(response => {
+        return response.text()
+      })
+      .then(text => {
+        this.setState({
+          markdown: marked(text)
+        })
+      })
+  }
+
   render() {
+    const { markdown } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div dangerouslySetInnerHTML={{__html: markdown}}></div>
       </div>
     );
   }
