@@ -15,7 +15,6 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 | [@nickttng](https://github.com/nickttng)                | Frontend Design / Project Facilitator         | Deaf/Hard-of-Hearing                          |
 | Sandy Tiania                                          | Consultant                                    | Deaf/Hard-of-Hearing                          |
 | [@greenteawarrior](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
-<<<<<<< HEAD
 | [@rgoodie](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
 | Suzanne Salerno        | Certified ScrumMaster / Interpreting Consultant | Hearing                                       |
        
