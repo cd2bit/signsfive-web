@@ -46,7 +46,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "test": "npm run lint",
+    "test:hold": "node scripts/test.js --env=jsdom",
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
