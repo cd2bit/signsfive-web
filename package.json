@@ -23,14 +23,16 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "lint": "eslint ./src && eslint ./tests",
-    "test": "npm run lint && npm run test:specs",
-    "test:specs": "node scripts/test.js --env=jsdom",
+    "test": "npm run lint && npm run test:coverage",
+    "test:jest": "node scripts/test.js --env=jsdom",
+    "test:coverage": "npm run test:jest -- --coverage && coveralls < coverage/lcov.info",
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
+    "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/config/polyfills.js",
       "<rootDir>/tests/setupTests.js"
@@ -86,6 +88,7 @@
     "babel-runtime": "^6.26.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
