@@ -20,7 +20,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "startç": "node scripts/start.js",
+    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "lint": "eslint ./src && eslint ./tests",
     "test": "npm run lint && npm run test:specs",
