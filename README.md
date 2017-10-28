@@ -1,7 +1,7 @@
 # About SignsFive
 
 [![Build Status](https://travis-ci.org/deafchi/signsfive-web.svg?branch=master)](https://travis-ci.org/deafchi/signsfive-web)
-[![Coverage Status](https://coveralls.io/repos/github/deafchi/signsfive-web/badge.svg?branch=master)](https://coveralls.io/github/deafchi/signsfive-web?branch=add-coverages)
+[![codecov](https://codecov.io/gh/deafchi/signsfive-web/branch/master/graph/badge.svg)](https://codecov.io/gh/deafchi/signsfive-web)
 
 We're working to make the search for STEM (Science, Technology, Engineering, Math) signs easier. In a field where new technologies and technical terms are always emerging, SignsFive will be a place where d/Deaf/HoH, interpreters and ASL students (and hearing users of ASL) can find signs for STEM terms. Led by [Jason Salerno](https://github.com/meltedspork) and internet friends.
 
