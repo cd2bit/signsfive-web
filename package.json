@@ -22,10 +22,11 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "coverage": "npm run test:jest -- --coverage && coveralls < coverage/lcov.info",
     "lint": "eslint ./src && eslint ./tests",
     "test": "npm run lint && npm run test:coverage",
     "test:jest": "node scripts/test.js --env=jsdom",
-    "test:coverage": "npm run test:jest -- --coverage && coveralls < coverage/lcov.info",
+    "test:coverage": "npm run test:jest -- --coverage",
     "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
