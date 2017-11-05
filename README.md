@@ -19,7 +19,7 @@ Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, 
 | Sandy Tiania                                          | Consultant                                    | Deaf/Hard-of-Hearing                          |
 | [@greenteawarrior](https://github.com/greenteawarrior)      | Interaction Design / HCI                      | Hearing                                       |
 | [@rgoodie](https://github.com/rgoodie)         | Frontend Development / Interpreting Consultant| Hearing                                       |
-| Suzanne Salerno        | Certified ScrumMaster / Interpreting Consultant | Hearing                                       |
+| [@meltedfork](https://github.com/meltedfork)        | Certified ScrumMaster / Dev Apprentice | Hearing                                       |
        
 
 **Contributors (Current and Past):** Jimmy Waller (Advisor), [@esputt93](https://github.com/esputt93) (User Experience / Cultural Anthropology)
