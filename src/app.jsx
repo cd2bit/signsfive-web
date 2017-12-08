@@ -7,6 +7,7 @@ import {
 
 import './styles/app.css';
 
+
 import Header from './layouts/header';
 import Home from './layouts/main';
 import About from './layouts/about';

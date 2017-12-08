@@ -7,14 +7,14 @@ const navStyles = {
 };
 
 const Navigator = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container">
 
       <div className="col-6">
         {/* nav-btn-home */}
         <a className="navbar-brand text-white tracked" href="#">SignsFive
             <sup>
-            <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>alpha</span>
+            <span className="badge badge-pill badge-primary text-uppercase" style={navStyles}>alpha</span>
           </sup>
         </a>
       </div>
