@@ -18,8 +18,8 @@ const Navigator = () => (
           </sup>
         </a>
       </div>
-      <div className="col-6">
-        <div className="pull-right">
+      <div className="col-8">
+        <div className="float-xs-right">
           {/* nav-btn-login */}
           <button type="button" className="btn btn-outline-light mr-2"><i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true"></i> <span className="d-none d-sm-inline-block">Log In</span></button>
           {/* nav-btn-submit */}
