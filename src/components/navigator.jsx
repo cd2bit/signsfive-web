@@ -7,28 +7,28 @@ const navStyles = {
 };
 
 const Navigator = () => (
-  <nav className="bg-dark">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container">
-      <div className="row pt-2 pb-1 pt-md-3 pb-md-2">
-        <div className="col-6">
-          {/* nav-btn-home */}
-          <a className="navbar-brand text-white tracked" href="#">SignsFive
+
+      <div className="col-6">
+        {/* nav-btn-home */}
+        <a className="navbar-brand text-white tracked" href="#">SignsFive
             <sup>
-              <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>alpha</span>
-            </sup>
-          </a>
-        </div>
-        <div className="col-6">
-          <div className="float-right">
-            {/* nav-btn-login */}
-            <button type="button" className="btn btn-outline-light mr-2"><i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true"></i> <span className="d-none d-sm-inline-block">Log In</span></button>
-            {/* nav-btn-submit */}
-            <button type="button" className="btn btn-primary"><i className="fa fa-upload" aria-hidden="true"></i>    <span className="d-none d-sm-inline-block">Submit a Sign</span>
-            </button>
-          </div>
+            <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>alpha</span>
+          </sup>
+        </a>
+      </div>
+      <div className="col-6">
+        <div className="pull-right">
+          {/* nav-btn-login */}
+          <button type="button" className="btn btn-outline-light mr-2"><i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true"></i> <span className="d-none d-sm-inline-block">Log In</span></button>
+          {/* nav-btn-submit */}
+          <button type="button" className="btn btn-primary"><i className="fa fa-upload" aria-hidden="true"></i>    <span className="d-none d-sm-inline-block">Submit a Sign</span>
+          </button>
         </div>
       </div>
     </div>
+
   </nav>
 );
 
