@@ -6,4 +6,10 @@ const Faqs = () => (
   </div>
 );
 
+Faqs.test = () => {
+  console.log('test');
+}
+
+
+
 export default Faqs;
