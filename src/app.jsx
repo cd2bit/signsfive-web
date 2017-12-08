@@ -10,6 +10,7 @@ import './styles/app.css';
 import Header from './layouts/header';
 import Home from './layouts/main';
 import About from './layouts/about';
+import Faqs from './layouts/faqs';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/about' component={About}/>
+            <Route exact path='/faqs' component={Faqs}/>
           </Switch>
         </div>
       </div>
