@@ -10,7 +10,7 @@ const Navigator = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container">
 
-      <div className="col-9">
+      <div className="col-6">
         {/* nav-btn-home */}
         <a className="navbar-brand text-white tracked" href="#">SignsFive
             <sup>
@@ -18,7 +18,7 @@ const Navigator = () => (
           </sup>
         </a>
       </div>
-      <div className="col-3">
+      <div className="col-6">
         <div className="float-xs-right">
           {/* nav-btn-login */}
           <button type="button" className="btn btn-outline-light mr-2"><i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true"></i> <span className="d-none d-sm-inline-block">Log In</span></button>
