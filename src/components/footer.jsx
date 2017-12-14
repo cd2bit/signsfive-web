@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import FooterLogin from './footer/login';
 import FooterGuidance from './footer/guidance'
 import FooterConnect from './footer/connect'
+import FooterChicagoBanner from './footer/chicago-banner'
 
 const Footer = () => (
   <footer className="bg-light">
@@ -52,13 +53,8 @@ const Footer = () => (
         <div className="bg-dark">
           <div className="row text-center py-4">
             {/* footer-chicago */}
-            <div className="col-md-6">
-              <div className="text-white footer-type tracked text-uppercase float-md-left">
-                <p>
-                  Built with <i className="fa fa-heart" aria-hidden="true" aira-label="heart"></i> in Chicago
-                </p>
-              </div>
-            </div>
+            <FooterChicagoBanner/>
+            
             {/* footer-banner-social */}
             <FooterConnect/>
 
