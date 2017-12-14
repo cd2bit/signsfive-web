@@ -7,9 +7,9 @@ const navStyles = {
 };
 
 const Navigator = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+ 
+  <nav className="bg-dark">
     <div className="container">
-
       <div className="col-6">
         {/* nav-btn-home */}
         <a className="navbar-brand text-white tracked" href="#">
