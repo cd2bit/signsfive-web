@@ -11,7 +11,7 @@ describe('<Navigator />', () => {
   });
 
   it('renders elements', () => {
-    expect(wrapper.find('.navbar').length).toBe(1);
+    expect(wrapper.find('nav').length).toBe(1);
     expect(wrapper.find('button').length).toBe(2);
     expect(wrapper.find('a').length).toBe(1);
   });
