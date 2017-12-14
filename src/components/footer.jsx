@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FooterLogin from './footer/login';
+import FooterGuidance from './footer/guidance'
 
 const Footer = () => (
   <footer className="bg-light">
@@ -18,25 +19,8 @@ const Footer = () => (
             </div>
           </div>
           {/* footer-guidance */}
-          <div className="col-md-2 tracked">
-            <div className="float-md-right text-md-left">
-              <h6 className="footer-type text-uppercase text-secondary">
-                Guidance
-              </h6>
-              <ul className="footer-type list-unstyled">
-                <li className="py-1">
-                  <a href="#" className="text-dark">
-                    How it works
-                  </a>
-                </li>
-                <li className="py-1">
-                  <a href="#" className="text-dark">
-                    Help Center
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <FooterGuidance/>
+
           {/* footer-connect */}
           <div className="col-md-2 tracked">
             <div className="float-md-right text-md-left">
