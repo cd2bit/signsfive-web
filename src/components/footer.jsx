@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterLogin from './footer/login';
 
 const Footer = () => (
   <footer className="bg-light">
@@ -12,15 +13,8 @@ const Footer = () => (
                 Submit a Sign
               </button>
               {/* footer-login */}
-              <p className="pt-3 footer-type tracked text-md-left">
-                <span className="text-secondary">
-                  Have an Account?
-                </span>
-                <br/>
-                <a href="#" className="text-dark">
-                  Log in
-                </a>
-              </p>
+              <FooterLogin/>
+              
             </div>
           </div>
           {/* footer-guidance */}
