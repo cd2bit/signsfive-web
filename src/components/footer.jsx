@@ -69,8 +69,8 @@ const Footer = () => (
         </div>
       </div>
       {/* footer-banner */}
-      <div className="bg-dark">
-        <div className="container">
+      <div className=" container">
+        <div className="bg-dark">
           <div className="row text-center py-4">
             {/* footer-chicago */}
             <div className="col-md-6">
