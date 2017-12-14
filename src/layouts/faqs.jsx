@@ -7,10 +7,7 @@ class Faqs extends React.Component {
     this.state = {
       question: []
     }
-
   }
-
-
 
   componentDidMount() {
     fetch('https://baconipsum.com/api/?type=meat-and-filler')
@@ -30,8 +27,6 @@ class Faqs extends React.Component {
   componentWillMount() {
 
   }
-
-
 
   render() {
     return (
