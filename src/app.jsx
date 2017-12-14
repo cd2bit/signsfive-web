@@ -7,9 +7,13 @@ import {
 
 import './styles/app.css';
 
+
 import Header from './layouts/header';
 import Home from './layouts/main';
 import About from './layouts/about';
+import Faqs from './layouts/faqs';
+import SearchBar from './components/search-bar';
+import Footer from './components/footer';
 
 class App extends Component {
   render() {
@@ -17,14 +21,18 @@ class App extends Component {
       <Router>
       <div className="App">
         <Header />
-        <div className="body">
+        <SearchBar />
+        <div className="body container">
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/about' component={About}/>
+            <Route exact path='/faqs' component={Faqs}/>
           </Switch>
         </div>
+        <Footer/>
       </div>
     </Router>
+    
     );
   }
 }

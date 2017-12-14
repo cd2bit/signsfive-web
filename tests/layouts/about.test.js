@@ -2,7 +2,7 @@ import React from 'react';
 
 import About from '../../src/layouts/about';
 
-describe('About', () => {
+xdescribe('<About />', () => {
   const wrapper = shallow(<About />);
 
   it('renders element', () => {
