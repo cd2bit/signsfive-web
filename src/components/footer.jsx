@@ -76,7 +76,7 @@ const Footer = () => (
             <div className="col-md-6">
               <div className="text-white footer-type tracked text-uppercase float-md-left">
                 <p>
-                  Built with <i className="fa fa-heart" aria-hidden="true" aira-label="heart" style="color:#bbdcf0"></i> in Chicago
+                  Built with <i className="fa fa-heart" aria-hidden="true" aira-label="heart"></i> in Chicago
                 </p>
               </div>
             </div>
@@ -84,13 +84,13 @@ const Footer = () => (
             <div className="col-md-6">
               <div className="float-md-right">
               <a href="https://www.facebook.com/signsfive/" aria-label="Facebook">
-                <i class="fa fa-facebook fa-lg fa-inverse px-3"></i>
+                <i className="fa fa-facebook fa-lg fa-inverse px-3"></i>
               </a>
               <a href="https://twitter.com/signsfive" aria-label="Twitter">
-                <i class="fa fa-twitter fa-lg fa-inverse px-3"></i>
+                <i className="fa fa-twitter fa-lg fa-inverse px-3"></i>
               </a>
               <a href="https://www.instagram.com/signsfive" aria-label="Instagram">
-                <i class="fa fa-instagram fa-lg fa-inverse px-3"></i>
+                <i className="fa fa-instagram fa-lg fa-inverse px-3"></i>
               </a>
             </div>
           </div>

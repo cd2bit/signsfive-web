@@ -13,6 +13,7 @@ import Home from './layouts/main';
 import About from './layouts/about';
 import Faqs from './layouts/faqs';
 import SearchBar from './components/search-bar';
+import Footer from './components/footer';
 
 class App extends Component {
   render() {
@@ -28,8 +29,10 @@ class App extends Component {
             <Route exact path='/faqs' component={Faqs}/>
           </Switch>
         </div>
+        <Footer/>
       </div>
     </Router>
+    
     );
   }
 }
