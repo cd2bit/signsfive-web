@@ -12,7 +12,6 @@ const Navigator = () => (
     <div className="container">
       <div className="row pt-2 pb-1 pt-md-3 pb-md-2">
         <div className="col-6">
-      
             <a className="navbar-brand text-white tracked" href="#">SignsFive <sup><span className="badge badge-pill badge-secondary text-uppercase">alpha</span></sup></a>
         </div>
         <div className="col-6">
@@ -25,6 +24,7 @@ const Navigator = () => (
         </div>
       </div>
     </div>
+    
   </nav>
 );
 
