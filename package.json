@@ -25,7 +25,7 @@
     "build": "node scripts/build.js",
     "coverage": "npm run test:jest -- --coverage && coveralls < coverage/lcov.info",
     "lint": "eslint ./src && eslint ./tests",
-    "test":  "node scripts/test.js --env=jsdom",
+    "test": "node scripts/test.js --env=jsdom",
     "ci": "npm run lint && npm run test && codecov",
     "test:coverage": "npm run test -- --coverage",
     "deploy": "npm run build && gh-pages -d build"
