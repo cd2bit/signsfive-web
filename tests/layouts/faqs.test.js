@@ -10,8 +10,8 @@ describe('<Faqs />', () => {
         wrapper = shallow(<Faqs />);
     });
 
-    it ('Faqs Wrapper exists', () => {
-        expect(wrapper.exists())       
+    it ('Title tag present', () => {
+        expect(wrapper.find('h2').text()).toEqual('FAQs')   
     });
 
 });
