@@ -10,8 +10,8 @@ describe('<Footer />', () => {
         wrapper = shallow(<Footer />);
     });
 
-    it ('Wrapper exists', () => {
-        expect(wrapper.exists())       
+    it ('Footer tag exists', () => {
+        expect(wrapper.find('footer').length).toBe(1)    
     });
 
 });
