@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FooterLogin from './footer/login';
 import FooterGuidance from './footer/guidance'
 import FooterSocial from './footer/social'
 import FooterChicagoBanner from './footer/chicago-banner'
