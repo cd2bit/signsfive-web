@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FooterLogin from './footer/login';
 import FooterGuidance from './footer/guidance'
-import FooterConnect from './footer/connect'
+import FooterSocial from './footer/social'
 import FooterChicagoBanner from './footer/chicago-banner'
 import FooterAboutus from './footer/about-us'
 
@@ -37,7 +37,7 @@ const Footer = () => (
             <FooterChicagoBanner/>  
             
             {/* footer-banner-social */}
-            <FooterConnect/>
+            <FooterSocial/>
 
         </div>
       </div>
