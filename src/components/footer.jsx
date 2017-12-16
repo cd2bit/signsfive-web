@@ -16,9 +16,7 @@ const Footer = () => (
               <button type="button" className="btn btn-outline-dark">
                 Submit a Sign
               </button>
-              {/* footer-login */}
-              <FooterLogin/>
-              
+                         
             </div>
           </div>
           {/* footer-guidance */}
