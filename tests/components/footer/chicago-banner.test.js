@@ -6,5 +6,7 @@ describe('<FooterChicagoBanner/>', () => {
     beforeEach(() => {
         wrapper = shallow(<FooterChicagoBanner/>);
     });
-    it('Footer tag exists', () => {});
+    it('FooterChicagoBanner tag exists', () => {
+        expect(wrapper.find("i").length).toBe(1)
+    });
 });
