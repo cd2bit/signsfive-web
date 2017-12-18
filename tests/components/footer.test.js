@@ -14,4 +14,6 @@ describe('<Footer />', () => {
         expect(wrapper.find('footer').length).toBe(1)    
     });
 
+    
+
 });
