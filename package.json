@@ -1,6 +1,9 @@
 {
   "name": "web",
   "version": "0.1.0",
+  "engines": {
+    "node": "9.2.0"
+  },
   "private": true,
   "homepage": "https://deafchi.github.io",
   "dependencies": {
@@ -28,7 +31,8 @@
     "test": "node scripts/test.js --env=jsdom",
     "ci": "npm run lint && npm run test && codecov",
     "test:coverage": "npm run test -- --coverage",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "postinstall": "npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
