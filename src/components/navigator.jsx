@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const navStyles = {
   fontSize: '0.5em',
-  letterSpacing: '0.2em'
+  letterSpacing: '0.2em',
 };
 
 const Navigator = () => (
@@ -23,13 +23,13 @@ const Navigator = () => (
         <div className="col-6">
           <div className="float-right">
             <button type="button" className="btn btn-outline-light mr-2">
-              <i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true"></i>
+              <i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true" />
               <span className="d-none d-sm-inline-block">
                 Log In
               </span>
             </button>
             <button type="button" className="btn btn-primary">
-              <i className="fa fa-upload" aria-hidden="true"></i>
+              <i className="fa fa-upload" aria-hidden="true" />
               <span className="d-none d-sm-inline-block">
                 Submit a Sign
               </span>

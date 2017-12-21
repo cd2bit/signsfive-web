@@ -5,9 +5,9 @@ import Navigator from '../../src/components/navigator';
 
 describe('<Header />', () => {
   let wrapper;
-  
+
   beforeEach(() => {
-    wrapper = shallow(<Header />);
+    wrapper = shallow(<Header />); // eslint-disable-line react/jsx-filename-extension
   });
 
   it('renders element', () => {
