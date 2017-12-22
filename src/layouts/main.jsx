@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Counter from '../containers/counter';
+
 const Main = () => (
   <div className="main">
     <h2>Hello World!</h2>
-
+    <Counter />
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a libero nec
        lacus ultricies pretium in et leo. Phasellus ut lorem leo. Quisque pharetra
