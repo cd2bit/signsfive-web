@@ -7,7 +7,7 @@ import './styles/index.css';
 
 import configureStore from './redux/configureStore';
 import App from './app';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './utils/registerServiceWorker';
 
 const store = configureStore();
 
