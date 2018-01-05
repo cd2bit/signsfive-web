@@ -7,17 +7,17 @@ const FooterAboutUs = () => (
       <h6 className="footer-type text-uppercase text-secondary">Connect</h6>
       <ul className="footer-type list-unstyled">
         <li className="py-1">
-          <a href="#" className="text-dark">
+          <a href="#about-us" className="text-dark">
             About us
           </a>
         </li>
         <li className="py-1">
-          <a href="#" className="text-dark">
+          <a href="#email" className="text-dark">
             Email
           </a>
         </li>
         <li className="py-1">
-          <a href="#" className="text-dark">
+          <a href="#blog" className="text-dark">
             Blog
           </a>
         </li>
