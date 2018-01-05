@@ -9,7 +9,7 @@ import './styles/app.css';
 
 
 import Header from './layouts/header';
-import Home from './layouts/main';
+import Main from './layouts/main';
 import About from './layouts/about';
 import Faqs from './layouts/faqs';
 
@@ -26,7 +26,7 @@ class App extends Component {
           <SearchBar />
           <div className="body container">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Main} />
               <Route exact path="/about" component={About} />
               <Route exact path="/faqs" component={Faqs} />
             </Switch>
