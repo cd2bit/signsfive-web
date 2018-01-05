@@ -11,7 +11,7 @@ const Navigator = () => (
     <div className="container">
       <div className="row pt-2 pb-1 pt-md-3 pb-md-2">
         <div className="col-6">
-          <a className="navbar-brand text-white tracked" href="#">
+          <a className="navbar-brand text-white tracked" href="#home">
             SignsFive
             <sup>
               <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>
