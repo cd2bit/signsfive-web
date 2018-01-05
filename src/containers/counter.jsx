@@ -21,7 +21,7 @@ Counter.propTypes = {
   increment: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ count: state.counter.count });
+const mapStateToProps = state => ({ count: state.counterReducer.count });
 
 const mapDispatchToProps = dispatch => ({
   increment: () => dispatch(counterActions.increment()),

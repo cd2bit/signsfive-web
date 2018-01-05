@@ -8,7 +8,7 @@ import { createLogger } from 'redux-logger';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/index.css';
 
-import reducer from './reducers';
+import reducer from './redux/reducer';
 import App from './app';
 
 import registerServiceWorker from './registerServiceWorker';
