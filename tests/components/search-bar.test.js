@@ -4,9 +4,9 @@ import SearchBar from '../../src/components/search-bar';
 
 xdescribe('SearchBar', () => {
   let wrapper;
-  
+
   beforeEach(() => {
-    wrapper = shallow(<SearchBar />);
+    wrapper = shallow(<SearchBar />); // eslint-disable-line react/jsx-filename-extension
   });
 
   it('renders elements', () => {

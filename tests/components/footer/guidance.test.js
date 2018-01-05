@@ -1,10 +1,15 @@
-import React from 'react'
-import Link from 'react-router-dom'
-import FooterGuidance from '../../../src/components/footer/guidance'
-     describe('<FooterGuidance />', () => {
-     let wrapper;
-     beforeEach(() => {
-         wrapper = shallow(<FooterGuidance />);
-     });
-     it ('FooterGuidance tag exists', () => {});
+import React from 'react';
+
+import FooterGuidance from '../../../src/components/footer/guidance';
+
+describe('<FooterGuidance />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<FooterGuidance />); // eslint-disable-line react/jsx-filename-extension
+  });
+
+  it('FooterGuidance tag exists', () => {
+    expect(wrapper.find('h6').length).toBe(1);
+  });
 });

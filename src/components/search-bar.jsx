@@ -10,7 +10,7 @@ const SearchBar = () => (
         {/* <!--search-button--> */}
         <span className="input-group-btn">
           <button className="btn btn-secondary" type="button">
-            <i className="fa fa-search" aria-label="Search" aria-hidden="true"></i>
+            <i className="fa fa-search" aria-label="Search" aria-hidden="true" />
           </button>
         </span>
       </div>

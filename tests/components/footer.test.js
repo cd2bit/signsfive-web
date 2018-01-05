@@ -1,19 +1,15 @@
-import React from 'react'
-import Link from 'react-router-dom'
-import Footer from '../../src/components/footer'
+import React from 'react';
 
+import Footer from '../../src/components/footer';
 
 describe('<Footer />', () => {
-    let wrapper;
+  let wrapper;
 
-    beforeEach(() => {
-        wrapper = shallow(<Footer />);
-    });
+  beforeEach(() => {
+    wrapper = shallow(<Footer />); // eslint-disable-line react/jsx-filename-extension
+  });
 
-    it ('Footer tag exists', () => {
-        expect(wrapper.find('footer').length).toBe(1)    
-    });
-
-    
-
+  it('Footer tag exists', () => {
+    expect(wrapper.find('footer').length).toBe(1);
+  });
 });
