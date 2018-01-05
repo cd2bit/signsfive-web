@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const FooterAboutUs = () => (
   <div className="col-md-2 tracked">
     <div className="float-md-right text-md-left">
