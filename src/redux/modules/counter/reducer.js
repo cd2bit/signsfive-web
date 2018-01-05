@@ -1,5 +1,4 @@
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT';
-export const COUNTER_DECREMENT = 'COUNTER_DECREMENT';
+import * as types from './types';
 
 const initialState = {
   count: 0,
@@ -7,11 +6,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case COUNTER_INCREMENT:
+    case types.COUNTER_INCREMENT:
       return {
         count: state.count + 1,
       };
-    case COUNTER_DECREMENT:
+    case types.COUNTER_DECREMENT:
       return {
         count: state.count - 1,
       };
