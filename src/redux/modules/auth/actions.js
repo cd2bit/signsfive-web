@@ -21,13 +21,19 @@ export function loginError(error) {
   };
 }
 
+export function logoutReuqest() {
+  return {
+    type: types.LOGOUT_REQUEST,
+  };
+}
+
 export function logoutSuccess() {
   return {
     type: types.LOGOUT_SUCCESS,
   };
 }
 
-export function processAuthentication() {
+export function loginUser() {
   return (dispatch) => {
     dispatch(loginRequest());
     return AuthService.handleAuthentication()
@@ -37,5 +43,13 @@ export function processAuthentication() {
       }
       // redux to let know login was not success
       .catch(err => dispatch(loginError(err)));
+  };
+}
+
+export function logoutUser() {
+  return (dispatch) => {
+    dispatch(logoutRequest());
+    AuthService.logout();
+    dispatch(logoutSuccess());
   };
 }

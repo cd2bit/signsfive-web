@@ -4,6 +4,7 @@ import AuthService from '../../../utils/AuthService';
 const initialState = {
   isAuthenticated: !AuthService.isTokenExpired(),
   isFetching: false,
+  isLoggingOut: false,
   profile: AuthService.getProfile(),
   error: null,
 };
@@ -31,9 +32,16 @@ export default function (state = initialState, action) {
         profile: {},
         error: action.error,
       };
+    case types.LOGOUT_REQUEST:
+      return {
+        ...state,
+        isLoggingOut: true,
+        error: null,
+      };
     case types.LOGOUT_SUCCESS:
       return {
         ...state,
+        isLoggingOut: false,
         isAuthenticated: false,
         profile: {},
       };
