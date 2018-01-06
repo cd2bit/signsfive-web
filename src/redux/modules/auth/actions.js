@@ -39,11 +39,10 @@ export function loginUser() {
   return (dispatch) => {
     dispatch(loginRequest());
     return AuthService.handleAuthentication()
-      .then({idToken, accessToken, profile} => {
+      .then(({idToken, accessToken, profile}) => {
         // redux to let know login was success
         dispatch(loginSuccess({idToken, accessToken, profile}))
-      }
-      // redux to let know login was not success
+      })
       .catch(err => dispatch(loginError(err)));
   };
 }

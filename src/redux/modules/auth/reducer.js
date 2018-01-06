@@ -5,6 +5,8 @@ const initialState = {
   isAuthenticated: !AuthService.isTokenExpired(),
   isFetching: false,
   isLoggingOut: false,
+  accessToken: AuthService.getAccessToken(),
+  idToken: AuthService.getIdToken(),
   profile: AuthService.getProfile(),
   error: null,
 };
