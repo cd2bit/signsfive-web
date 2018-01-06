@@ -45,17 +45,19 @@
   "jest": {
     "collectCoverageFrom": [
       "src/app.{js,jsx}",
-      "src/{components,layouts}/**/*.{js,jsx}"
+      "src/{components,layouts}/**/*.{js,jsx}",
+      "src/redux/**/*.{js,jsx}"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/config/polyfills.js",
-      "<rootDir>/tests/setupTests.js"
+      "<rootDir>/tests/setupTests.js",
+      "jest-localstorage-mock"
     ],
     "testMatch": [
-      "<rootDir>/tests/**/__tests__/**/*.js?(x)",
-      "<rootDir>/tests/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/(tests|src)/**/__tests__/**/*.js?(x)",
+      "<rootDir>/(tests|src)/**/?(*.)(spec|test).js?(x)"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
