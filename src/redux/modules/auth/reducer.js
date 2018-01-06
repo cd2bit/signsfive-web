@@ -22,6 +22,8 @@ export default function (state = initialState, action) {
         ...state,
         isFetching: false,
         isAuthenticated: true,
+        idToken: action.idToken,
+        accessToken: action.accessToken,
         profile: action.profile,
       };
     case types.LOGIN_ERROR:
