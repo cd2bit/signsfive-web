@@ -1,24 +1,108 @@
 import auth0 from 'auth0-js';
+import jwtDecode from 'jwt-decode';
+
 import AUTH_CONFIG from './auth0-variables';
 
-export default class AuthService {
-  auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientId,
-    redirectUri: AUTH_CONFIG.callbackUrl,
-    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-    responseType: 'token id_token',
-    scope: 'openid',
-  });
+const ID_TOKEN = 'id_token';
+const ACCESS_TOKEN = 'access_token';
+const EXPIRES_AT = 'expires_at';
+const PROFILE = 'profile';
 
-  constructor() {
-    this.login = this.login.bind(this);
-    // this.logout = this.logout.bind(this);
-    // this.handleAuthentication = this.handleAuthentication.bind(this);
-    // this.isAuthenticated = this.isAuthenticated.bind(this);
+const AUTH0 = new auth0.WebAuth({
+  domain: AUTH_CONFIG.domain,
+  clientID: AUTH_CONFIG.clientId,
+  redirectUri: AUTH_CONFIG.callbackUrl,
+  audience: 'https://api.signsfive.com/userinfo',
+  responseType: 'token id_token',
+  scope: 'openid profile email https://api.signsfive.com/roles https://api.signsfive.com/permissions https://api.signsfive.com/groups',
+  leeway: 60,
+  grant_type: 'authorization_code',
+});
+
+export default class AuthService {
+  static login() {
+    AUTH0.authorize();
   }
 
-  login() {
-    this.auth0.authorize();
+  static logout() {
+    // Clear access token and ID token from local storage
+    window.localStorage.removeItem(ACCESS_TOKEN);
+    window.localStorage.removeItem(ID_TOKEN);
+    window.localStorage.removeItem(EXPIRES_AT);
+    window.localStorage.removeItme(PROFILE);
+  }
+
+  static isAuthenticated() {
+    const token = AuthService.getIdToken();
+    return !!token && !AuthService.isTokenExpired(token);
+  }
+
+  static handleAuthentication() {
+    AUTH0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        AuthService.setIdToken(authResult.idToken);
+        AuthService.setAccessToken(authResult.accessToken);
+        AUTH0.client.userInfo(authResult.accessToken, (err2, user) => {
+          if (err2) {
+            console.log(err2);
+          } else {
+            AuthService.setProfile(user);
+          }
+        });
+      } else if (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  static getProfile() {
+    const profile = window.localStorage.getItem(PROFILE);
+    return profile ? JSON.parse(profile) : {};
+  }
+
+  static setProfile(profile) {
+    window.localStorage.setItem(PROFILE, JSON.stringify(profile));
+  }
+
+  static getIdToken() {
+    return window.localStorage.getItem(ID_TOKEN);
+  }
+
+  static setIdToken(idToken) {
+    window.localStorage.setItem(ID_TOKEN, idToken);
+  }
+
+  static getAccessToken() {
+    return window.localStorage.getItem(ACCESS_TOKEN);
+  }
+
+  static setAccessToken(accessToken) {
+    window.localStorage.setItem(ACCESS_TOKEN, accessToken);
+  }
+
+  static getTokenExpirationDate() {
+    const token = AuthService.getIdToken();
+    const decoded = jwtDecode(token);
+    if (!decoded.exp) {
+      return null;
+    }
+
+    const date = new Date(0); // 0 sets date to the epoch
+    date.setUTCSeconds(decoded.exp);
+    return date;
+  }
+
+  static isTokenExpired() {
+    const token = AuthService.getIdToken();
+    if (!token) {
+      return true;
+    }
+
+    const date = AuthService.getTokenExpirationDate();
+    if (date === null) {
+      return true;
+    }
+
+    return (date.valueOf() > ((new Date()).valueOf()));
   }
 }

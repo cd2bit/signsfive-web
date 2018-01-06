@@ -1,7 +1,7 @@
 const AUTH_CONFIG = {
-  domain: '{DOMAIN}',
-  clientId: '{CLIENT_ID}',
-  callbackUrl: 'http://localhost:3000/callback',
+  domain: 'signsfive.auth0.com',
+  clientId: 'MNZGv1cpercLQgy0fCb3MHqeO0HN8uGP',
+  callbackUrl: 'http://localhost:3000/',
 };
 
 export default AUTH_CONFIG;
