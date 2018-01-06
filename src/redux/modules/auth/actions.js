@@ -2,12 +2,13 @@ import * as types from './types';
 import AuthService from '../../../utils/AuthService';
 
 export function loginRequest() {
+  AuthService.login();
   return {
     type: types.LOGIN_REQUEST,
   };
 }
 
-export function loginSuccess({idToken, accessToken, profile}) {
+export function loginSuccess({ idToken, accessToken, profile }) {
   return {
     type: types.LOGIN_SUCCESS,
     idToken,
@@ -35,6 +36,7 @@ export function logoutSuccess() {
   };
 }
 
+/*
 export function loginUser() {
   return (dispatch) => {
     dispatch(loginRequest());
@@ -54,3 +56,4 @@ export function logoutUser() {
     dispatch(logoutSuccess());
   };
 }
+*/

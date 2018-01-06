@@ -1,19 +1,20 @@
 import * as types from './types';
-import AuthService from '../../../utils/AuthService';
+// import AuthService from '../../../utils/AuthService';
 
 const initialState = {
-  isAuthenticated: !AuthService.isTokenExpired(),
+  isAuthenticated: false, // !AuthService.isTokenExpired(),
   isFetching: false,
   isLoggingOut: false,
-  accessToken: AuthService.getAccessToken(),
-  idToken: AuthService.getIdToken(),
-  profile: AuthService.getProfile(),
+  accessToken: null, // AuthService.getAccessToken(),
+  idToken: null, // AuthService.getIdToken(),
+  profile: null, // AuthService.getProfile(),
   error: null,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_REQUEST:
+      console.log('LOGIN_REQUEST', types.LOGIN_REQUEST);
       return {
         ...state,
         isFetching: true,
