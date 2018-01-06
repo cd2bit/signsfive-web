@@ -13,7 +13,7 @@ const AUTH0 = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
   clientID: AUTH_CONFIG.clientId,
   redirectUri: AUTH_CONFIG.callbackUrl,
-  audience: 'https://api.signsfive.com/userinfo',
+  audience: 'https://api.signsfive.com/',
   responseType: 'token id_token',
   scope: 'openid profile email https://api.signsfive.com/roles https://api.signsfive.com/permissions https://api.signsfive.com/groups',
   leeway: 60,
@@ -39,7 +39,7 @@ export default class AuthService {
   }
 
   static handleAuthentication() {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       AUTH0.parseHash((err, authResult) => {
         if (authResult && authResult.accessToken && authResult.idToken) {
           AUTH0.client.userInfo(authResult.accessToken, (err2, profile) => {
@@ -49,7 +49,11 @@ export default class AuthService {
               AuthService.setIdToken(authResult.idToken);
               AuthService.setAccessToken(authResult.accessToken);
               AuthService.setProfile(profile);
-              resolve({idToken: authResult.idToken, accessToken: authResult.accessToken, profile});
+              resolve({
+                idToken: authResult.idToken,
+                accessToken: authResult.accessToken,
+                profile,
+              });
             }
           });
         } else if (err) {
