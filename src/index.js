@@ -1,27 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/index.css';
 
-import reducer from './reducers';
+import configureStore from './redux/configureStore';
 import App from './app';
+import registerServiceWorker from './utils/registerServiceWorker';
 
-import registerServiceWorker from './registerServiceWorker';
-
-const middleware = [thunk];
-if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
-}
-
-const store = createStore(
-  reducer,
-  applyMiddleware(...middleware),
-);
+const store = configureStore();
 
 ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension

@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import {
-  increment,
-  decrement,
-} from '../actions/counter-action';
+import { counterActions } from '../redux/modules/counter';
 
 const Counter = props => (
   <div>
@@ -24,11 +21,11 @@ Counter.propTypes = {
   increment: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ count: state.counter.count });
+const mapStateToProps = state => ({ count: state.counterReducer.count });
 
 const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch(increment()),
-  decrement: () => dispatch(decrement()),
+  increment: () => dispatch(counterActions.increment()),
+  decrement: () => dispatch(counterActions.decrement()),
 });
 
 export default connect(
