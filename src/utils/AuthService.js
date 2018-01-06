@@ -42,14 +42,14 @@ export default class AuthService {
     return new Promise( (resolve, reject) => {
       AUTH0.parseHash((err, authResult) => {
         if (authResult && authResult.accessToken && authResult.idToken) {
-          AUTH0.client.userInfo(authResult.accessToken, (err2, user) => {
+          AUTH0.client.userInfo(authResult.accessToken, (err2, profile) => {
             if (err2) {
               reject(err2);
             } else {
               AuthService.setIdToken(authResult.idToken);
               AuthService.setAccessToken(authResult.accessToken);
-              AuthService.setProfile(user);
-              resolve(authResult);
+              AuthService.setProfile(profile);
+              resolve({idToken: authResult.idToken, accessToken: authResult.accessToken, profile});
             }
           });
         } else if (err) {

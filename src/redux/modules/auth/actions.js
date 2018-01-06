@@ -7,9 +7,11 @@ export function loginRequest() {
   };
 }
 
-export function loginSuccess(profile) {
+export function loginSuccess({idToken, accessToken, profile}) {
   return {
     type: types.LOGIN_SUCCESS,
+    idToken,
+    accessToken,
     profile,
   };
 }
@@ -21,7 +23,7 @@ export function loginError(error) {
   };
 }
 
-export function logoutReuqest() {
+export function logoutRequest() {
   return {
     type: types.LOGOUT_REQUEST,
   };
@@ -37,9 +39,9 @@ export function loginUser() {
   return (dispatch) => {
     dispatch(loginRequest());
     return AuthService.handleAuthentication()
-      .then(profile = {
+      .then({idToken, accessToken, profile} => {
         // redux to let know login was success
-        dispatch(loginSuccess(profile))
+        dispatch(loginSuccess({idToken, accessToken, profile}))
       }
       // redux to let know login was not success
       .catch(err => dispatch(loginError(err)));
