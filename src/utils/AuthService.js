@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js';
 import jwtDecode from 'jwt-decode';
+import Promise from 'promise';
 
 import AUTH_CONFIG from './auth0-variables';
 
@@ -38,20 +39,23 @@ export default class AuthService {
   }
 
   static handleAuthentication() {
-    AUTH0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        AuthService.setIdToken(authResult.idToken);
-        AuthService.setAccessToken(authResult.accessToken);
-        AUTH0.client.userInfo(authResult.accessToken, (err2, user) => {
-          if (err2) {
-            console.log(err2);
-          } else {
-            AuthService.setProfile(user);
-          }
-        });
-      } else if (err) {
-        console.log(err);
-      }
+    return new Promise( (resolve, reject) => {
+      AUTH0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          AUTH0.client.userInfo(authResult.accessToken, (err2, user) => {
+            if (err2) {
+              reject(err2);
+            } else {
+              AuthService.setIdToken(authResult.idToken);
+              AuthService.setAccessToken(authResult.accessToken);
+              AuthService.setProfile(user);
+              resolve(authResult);
+            }
+          });
+        } else if (err) {
+          reject(err);
+        }
+      });
     });
   }
 
