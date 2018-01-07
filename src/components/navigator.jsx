@@ -1,7 +1,8 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-import SignIn from './sign-in';
+import SignIn from './buttons/sign-in';
+import SubmitASign from './buttons/submit-a-sign';
 
 const navStyles = {
   fontSize: '0.5em',
@@ -25,12 +26,7 @@ const Navigator = () => (
         <div className="col-6">
           <div className="float-right">
             <SignIn />
-            <button type="button" className="btn btn-primary">
-              <i className="fa fa-upload" aria-hidden="true" />
-              <span className="d-none d-sm-inline-block">
-                Submit a Sign
-              </span>
-            </button>
+            <SubmitASign />
           </div>
         </div>
       </div>

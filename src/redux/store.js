@@ -3,10 +3,15 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import rootReducer from './reducer';
+import authMiddleware from './modules/auth/middleware';
+import rootReducer from './../redux/reducer';
 
 
-const middlewares = [thunkMiddleware];
+const middlewares = [
+  thunkMiddleware,
+  authMiddleware,
+];
+
 if (process.env.NODE_ENV !== 'production') {
   middlewares.push(createLogger());
 }

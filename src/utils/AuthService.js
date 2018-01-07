@@ -27,39 +27,47 @@ export default class AuthService {
 
   static logout() {
     // Clear access token and ID token from local storage
-    window.localStorage.removeItem(ACCESS_TOKEN);
-    window.localStorage.removeItem(ID_TOKEN);
-    window.localStorage.removeItem(EXPIRES_AT);
-    window.localStorage.removeItme(PROFILE);
+    return new Promise((resolve) => {
+      window.localStorage.removeItem(ACCESS_TOKEN);
+      window.localStorage.removeItem(ID_TOKEN);
+      window.localStorage.removeItem(EXPIRES_AT);
+      window.localStorage.removeItem(PROFILE);
+      resolve(true);
+    });
   }
 
   static isAuthenticated() {
-    const token = AuthService.getIdToken();
-    return !!token && !AuthService.isTokenExpired(token);
+    const token = this.getIdToken();
+    return !!token && !this.isTokenExpired(token);
   }
 
   static handleAuthentication() {
     return new Promise((resolve, reject) => {
       AUTH0.parseHash((err, authResult) => {
-        if (authResult && authResult.accessToken && authResult.idToken) {
-          AUTH0.client.userInfo(authResult.accessToken, (err2, profile) => {
-            if (err2) {
-              reject(err2);
-            } else {
-              AuthService.setIdToken(authResult.idToken);
-              AuthService.setAccessToken(authResult.accessToken);
-              AuthService.setProfile(profile);
-              resolve({
-                idToken: authResult.idToken,
-                accessToken: authResult.accessToken,
-                profile,
-              });
-            }
-          });
+        if (authResult) {
+          const { accessToken, idToken } = authResult;
+          if (accessToken && idToken) {
+            AUTH0.client.userInfo(accessToken, (err2, profile) => {
+              if (err2) {
+                reject(err2);
+              } else {
+                this.setIdToken(idToken);
+                this.setAccessToken(accessToken);
+                this.setProfile(profile);
+                resolve({
+                  idToken,
+                  accessToken,
+                  profile,
+                });
+              }
+            });
+          } else {
+            reject(new Error('No hash to parse!'));
+          }
         } else if (err) {
           reject(err);
         } else {
-          reject(new Error('No hash to parse!'));
+          reject(new Error({ response: {} }));
         }
       });
     });
@@ -91,7 +99,7 @@ export default class AuthService {
   }
 
   static getTokenExpirationDate() {
-    const token = AuthService.getIdToken();
+    const token = this.getIdToken();
     const decoded = jwtDecode(token);
     if (!decoded.exp) {
       return null;
@@ -103,16 +111,16 @@ export default class AuthService {
   }
 
   static isTokenExpired() {
-    const token = AuthService.getIdToken();
+    const token = this.getIdToken();
     if (!token) {
       return true;
     }
 
-    const date = AuthService.getTokenExpirationDate();
+    const date = this.getTokenExpirationDate();
     if (date === null) {
       return true;
     }
 
-    return (date.valueOf() > ((new Date()).valueOf()));
+    return (date.valueOf() < ((new Date()).valueOf()));
   }
 }
