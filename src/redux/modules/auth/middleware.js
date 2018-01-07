@@ -12,11 +12,13 @@ const authMiddleware = store => next => (action) => {
       // NOTE: kept here for dev purpose
       // once Auth0 is completed, we can remove this
       // NOTE: this is actually not true error
+      // eslint-disable-next-line no-console
       console.log('err', err);
       const isAuthenticated = AuthService.isAuthenticated();
       if (isAuthenticated) {
         // NOTE: kept here for dev purpose
         // once Auth0 is completed, we can remove this
+        // eslint-disable-next-line no-console
         console.log('authMiddleware: isAuthenticated: ', isAuthenticated);
       }
       next(action);
