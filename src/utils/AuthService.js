@@ -121,6 +121,6 @@ export default class AuthService {
       return true;
     }
 
-    return (date.valueOf() < ((new Date()).valueOf()));
+    return (date.valueOf() > ((new Date()).valueOf()));
   }
 }
