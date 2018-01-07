@@ -8,7 +8,7 @@ const authMiddleware = store => next => (action) => {
       window.location.href = '/';
       store.dispatch(loginSuccess(authResult));
       next(action);
-    }).catch(() => {
+    }).catch((err) => {
       // NOTE: kept here for dev purpose
       // once Auth0 is completed, we can remove this
       // NOTE: this is actually not true error
