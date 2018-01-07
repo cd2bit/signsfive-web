@@ -41,11 +41,11 @@ export function logoutRequest() {
   };
 }
 
-export function logoutSuccess({ logged }) {
+export function logoutSuccess({ isLoggedOut }) {
   return {
     type: types.LOGOUT_SUCCESS,
     action: {
-      isLoggingOut: !logged,
+      isLoggingOut: !isLoggedOut,
     },
   };
 }
@@ -61,6 +61,6 @@ export function logoutUser() {
   return (dispatch) => {
     dispatch(logoutRequest());
     AuthService.logout()
-      .then(logged => dispatch(logoutSuccess({ logged })));
+      .then(isLoggedOut => dispatch(logoutSuccess({ isLoggedOut })));
   };
 }

@@ -49,7 +49,7 @@ describe('(Actions) auth', () => {
         isLoggingOut: false,
       },
     };
-    expect(authActions.logoutSuccess({ logged: true })).to.deep.equal(expectedAction);
+    expect(authActions.logoutSuccess({ isLoggedOut: true })).to.deep.equal(expectedAction);
   });
 
   it('should return an action promises for LOGOUT_REQUEST and LOGOUT_SUCCESS', () => {

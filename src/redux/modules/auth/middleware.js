@@ -9,11 +9,15 @@ const authMiddleware = store => next => (action) => {
       store.dispatch(loginSuccess(authResult));
       next(action);
     }).catch(() => {
-      // this is actually not true error
-      // console.log('err', err);
+      // NOTE: kept here for dev purpose
+      // once Auth0 is completed, we can remove this
+      // NOTE: this is actually not true error
+      console.log('err', err);
       const isAuthenticated = AuthService.isAuthenticated();
       if (isAuthenticated) {
-        console.log('getProfile: ', AuthService.getProfile());
+        // NOTE: kept here for dev purpose
+        // once Auth0 is completed, we can remove this
+        console.log('authMiddleware: isAuthenticated: ', isAuthenticated);
       }
       next(action);
     });

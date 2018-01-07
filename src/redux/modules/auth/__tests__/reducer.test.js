@@ -90,10 +90,10 @@ describe('(Reducer) auth', () => {
   });
 
   it('should handle LOGOUT_SUCCESS', () => {
-    expect(authReducer(undefined, { type: authTypes.LOGOUT_SUCCESS, isLoggingOut: 1234, error: 'fakeError' })).to.deep.equal({
+    expect(authReducer(undefined, { type: authTypes.LOGOUT_SUCCESS, isLoggingOut: false, error: 'fakeError' })).to.deep.equal({
       isAuthenticated: false,
       isFetching: false,
-      isLoggingOut: 1234,
+      isLoggingOut: false,
       idToken: null,
       accessToken: null,
       profile: {},
