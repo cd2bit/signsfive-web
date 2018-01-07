@@ -7,7 +7,7 @@ const initialState = {
   isLoggingOut: false,
   accessToken: null,
   idToken: null,
-  profile: null,
+  profile: {},
   error: null,
 };
 
@@ -58,7 +58,7 @@ export default function (state = initialState, action) {
         ...state,
         isAuthenticated: AuthService.isAuthenticated(),
         isLoggingOut: action.isLoggingOut,
-        profile: null,
+        profile: {},
       };
     default:
       return state;

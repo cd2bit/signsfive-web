@@ -19,7 +19,11 @@ describe('(Actions) auth', () => {
       accessToken: fakeAccessToken,
       profile: fakeProfile,
     };
-    expect(authActions.loginSuccess({idToken: fakeIdToken, accessToken: fakeAccessToken, profile: fakeProfile})).to.deep.equal(expectedAction);
+    expect(authActions.loginSuccess({
+      idToken: fakeIdToken,
+      accessToken: fakeAccessToken,
+      profile: fakeProfile,
+    })).to.deep.equal(expectedAction);
   });
 
   it('should create an action for LOGIN_ERROR', () => {
@@ -41,7 +45,10 @@ describe('(Actions) auth', () => {
   it('should create an action for LOGOUT_SUCCESS', () => {
     const expectedAction = {
       type: authTypes.LOGOUT_SUCCESS,
+      action: {
+        isLoggingOut: false,
+      },
     };
-    expect(authActions.logoutSuccess()).to.deep.equal(expectedAction);
+    expect(authActions.logoutSuccess({ logged: true })).to.deep.equal(expectedAction);
   });
 });
