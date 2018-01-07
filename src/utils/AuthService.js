@@ -58,6 +58,8 @@ export default class AuthService {
           });
         } else if (err) {
           reject(err);
+        } else {
+          reject(new Error('No hash to parse!'));
         }
       });
     });
