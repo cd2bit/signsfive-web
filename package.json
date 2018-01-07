@@ -45,7 +45,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/app.{js,jsx}",
-      "src/{components,layouts}/**/*.{js,jsx}",
+      "src/{containers,components,layouts}/**/*.{js,jsx}",
       "src/redux/**/*.{js,jsx}"
     ],
     "coverageDirectory": "./coverage/",

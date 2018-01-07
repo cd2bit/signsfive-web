@@ -4,9 +4,9 @@ import { loginSuccess } from './actions';
 
 const authMiddleware = store => next => (action) => {
   AuthService.handleAuthentication()
-    .then((logged) => {
+    .then((authResult) => {
       window.location.href = '/';
-      store.dispatch(loginSuccess(logged));
+      store.dispatch(loginSuccess(authResult));
       next(action);
     }).catch(() => {
       // this is actually not true error

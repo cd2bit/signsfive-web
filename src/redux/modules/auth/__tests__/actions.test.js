@@ -51,4 +51,28 @@ describe('(Actions) auth', () => {
     };
     expect(authActions.logoutSuccess({ logged: true })).to.deep.equal(expectedAction);
   });
+
+  it('should return an action promises for LOGOUT_REQUEST and LOGOUT_SUCCESS', () => {
+    const expectedAction1 = {
+      type: authTypes.LOGOUT_SUCCESS,
+      action: {
+        isLoggingOut: false,
+      },
+    };
+    const expectedAction2 = {
+      type: authTypes.LOGOUT_SUCCESS,
+      action: {
+        isLoggingOut: false,
+      },
+    };
+    const test = authActions.logoutUser();
+    console.log(test(console.log));
+    /*
+    return authActions.logoutUser().then((data) => {
+      console.log('datadatadata', data);
+      // expect(data.pair).to.equal(true);
+      // expect(data.rate).to.have.length(400);
+    });
+    */
+  });
 });

@@ -37,8 +37,8 @@ export default class AuthService {
   }
 
   static isAuthenticated() {
-    const token = this.getIdToken();
-    return !!token && !this.isTokenExpired(token);
+    const token = AuthService.getIdToken();
+    return !!token && !AuthService.isTokenExpired(token);
   }
 
   static handleAuthentication() {
@@ -51,9 +51,9 @@ export default class AuthService {
               if (err2) {
                 reject(err2);
               } else {
-                this.setIdToken(idToken);
-                this.setAccessToken(accessToken);
-                this.setProfile(profile);
+                AuthService.setIdToken(idToken);
+                AuthService.setAccessToken(accessToken);
+                AuthService.setProfile(profile);
                 resolve({
                   idToken,
                   accessToken,
@@ -99,7 +99,7 @@ export default class AuthService {
   }
 
   static getTokenExpirationDate() {
-    const token = this.getIdToken();
+    const token = AuthService.getIdToken();
     const decoded = jwtDecode(token);
     if (!decoded.exp) {
       return null;
@@ -111,12 +111,12 @@ export default class AuthService {
   }
 
   static isTokenExpired() {
-    const token = this.getIdToken();
+    const token = AuthService.getIdToken();
     if (!token) {
       return true;
     }
 
-    const date = this.getTokenExpirationDate();
+    const date = AuthService.getTokenExpirationDate();
     if (date === null) {
       return true;
     }
