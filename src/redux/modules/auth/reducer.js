@@ -15,6 +15,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case types.NOT_LOGGED_IN:
       return initialState;
+    case types.IS_LOGGED_IN:
     case types.LOGIN_STATUS:
       return {
         ...state,
@@ -52,13 +53,13 @@ export default function (state = initialState, action) {
         ...state,
         isLoggingOut: true,
         error: null,
+        profile: {},
       };
     case types.LOGOUT_SUCCESS:
       return {
         ...state,
         isAuthenticated: AuthService.isAuthenticated(),
         isLoggingOut: action.isLoggingOut,
-        profile: {},
       };
     default:
       return state;

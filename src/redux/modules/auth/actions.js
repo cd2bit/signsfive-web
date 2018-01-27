@@ -22,6 +22,12 @@ export function loginSuccess({ idToken, accessToken, profile }) {
   };
 }
 
+export function isLoggedIn() {
+  return {
+    type: types.IS_LOGGED_IN,
+  };
+}
+
 export function notLoggedIn() {
   return {
     type: types.NOT_LOGGED_IN,
@@ -60,7 +66,7 @@ export function loginUser() {
 export function logoutUser() {
   return (dispatch) => {
     dispatch(logoutRequest());
-    AuthService.logout()
+    return AuthService.logout()
       .then(isLoggedOut => dispatch(logoutSuccess({ isLoggedOut })));
   };
 }

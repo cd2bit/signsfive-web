@@ -67,7 +67,7 @@ export default class AuthService {
         } else if (err) {
           reject(err);
         } else {
-          reject(new Error({ response: {} }));
+          resolve(null);
         }
       });
     });
