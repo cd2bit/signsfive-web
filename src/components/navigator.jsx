@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-import SignIn from './buttons/sign-in';
-import SubmitASign from './buttons/submit-a-sign';
+import SignInContainer from '../containers/navigator/sign-in';
+import SubmitASignContainer from '../containers/navigator/submit-a-sign';
 
 const navStyles = {
   fontSize: '0.5em',
@@ -25,8 +25,8 @@ const Navigator = () => (
         </div>
         <div className="col-6">
           <div className="float-right">
-            <SignIn />
-            <SubmitASign />
+            <SignInContainer />
+            <SubmitASignContainer />
           </div>
         </div>
       </div>

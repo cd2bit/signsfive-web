@@ -57,20 +57,20 @@ describe('(Actions) auth ', () => {
   });
 
   describe('action creators', () => {
-    let callback;
+    let callbackSpy;
 
     beforeEach(() => {
-      callback = spy();
+      callbackSpy = spy();
     });
 
     afterEach(() => {
-      callback = null;
+      callbackSpy = null;
     });
 
     it('should return an action creator for LOGIN_REQUEST and AuthService.login', () => {
       const loginStub = stub(AuthService, 'login');
-      const loginUser = authActions.loginUser()(callback);
-      expect(callback.args[0]).to.deep.equal([{
+      authActions.loginUser()(callbackSpy);
+      expect(callbackSpy.args[0]).to.deep.equal([{
         type: authTypes.LOGIN_REQUEST,
       }]);
       expect(loginStub.called).to.be.true; // eslint-disable-line no-unused-expressions
@@ -80,12 +80,12 @@ describe('(Actions) auth ', () => {
     it('should return an action creator for LOGOUT_REQUEST and LOGOUT_SUCCESS with AuthService.logout', () => {
       const logoutStub = stub(AuthService, 'logout').resolves(false);
 
-      return authActions.logoutUser()(callback).then(() => {
-        expect(callback.args[0]).to.deep.equal([{
+      return authActions.logoutUser()(callbackSpy).then(() => {
+        expect(callbackSpy.args[0]).to.deep.equal([{
           type: authTypes.LOGOUT_REQUEST,
         }]);
         expect(logoutStub.called).to.be.true; // eslint-disable-line no-unused-expressions
-        expect(callback.args[1]).to.deep.equal([{
+        expect(callbackSpy.args[1]).to.deep.equal([{
           type: authTypes.LOGOUT_SUCCESS,
           action: { isLoggingOut: true },
         }]);

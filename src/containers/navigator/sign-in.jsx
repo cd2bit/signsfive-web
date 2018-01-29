@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { authActions } from '../../redux/modules/auth';
 
-class SignIn extends React.Component {
+export class SignIn extends React.Component {
   componentWillMount() {
     this.props.loginStatus();
   }

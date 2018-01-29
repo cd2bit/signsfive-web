@@ -93,7 +93,10 @@
       "airbnb"
     ],
     "globals": {
-      "shallow": true
+      "shallow": true,
+      "mount": true,
+      "spy": true,
+      "stub": true
     }
   },
   "devDependencies": {

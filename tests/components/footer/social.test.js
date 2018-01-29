@@ -9,7 +9,7 @@ describe('<FooterSocial />', () => {
     wrapper = shallow(<FooterSocial />); // eslint-disable-line react/jsx-filename-extension
   });
 
-  it('FooterSocial tag exists', () => {
+  it('renders element', () => {
     expect(wrapper.find('a').length).toBe(3);
   });
 });

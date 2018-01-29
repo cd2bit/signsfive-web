@@ -9,7 +9,7 @@ describe('<FooterChicagoBanner/>', () => {
     wrapper = shallow(<FooterChicagoBanner />); // eslint-disable-line react/jsx-filename-extension
   });
 
-  it('FooterChicagoBanner tag exists', () => {
+  it('renders element', () => {
     expect(wrapper.find('i').length).toBe(1);
   });
 });

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import Navigator from '../../src/components/navigator';
 
-import SignIn from '../../src/components/buttons/sign-in';
-import SubmitASign from '../../src/components/buttons/submit-a-sign';
+import SignInContainer from '../../src/containers/navigator/sign-in';
+import SubmitASignContainer from '../../src/containers/navigator/submit-a-sign';
 
 describe('<Navigator />', () => {
   let wrapper;
@@ -18,12 +18,12 @@ describe('<Navigator />', () => {
     expect(wrapper.find('a').length).toBe(1);
   });
 
-  it('renders <SignIn />', () => {
-    expect(wrapper.find(SignIn).length).toBe(1);
+  it('renders <SignInContainer />', () => {
+    expect(wrapper.find(SignInContainer).length).toBe(1);
   });
 
-  it('renders <SubmitASign />', () => {
-    expect(wrapper.find(SubmitASign).length).toBe(1);
+  it('renders <SubmitASignContainer />', () => {
+    expect(wrapper.find(SubmitASignContainer).length).toBe(1);
   });
 
   // This will be next step once we implement the Links instead of a href

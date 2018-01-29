@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const SubmitASign = ({ isAuthenticated }) => {
+export const SubmitASign = ({ isAuthenticated }) => {
   if (!isAuthenticated) {
     return <span />;
   }
