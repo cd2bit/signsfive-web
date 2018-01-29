@@ -13,7 +13,7 @@ const AUTH0 = new auth0.WebAuth({
   domain: AUTH_CONFIG.domain,
   clientID: AUTH_CONFIG.clientId,
   redirectUri: AUTH_CONFIG.callbackUrl,
-  audience: 'https://api.signsfive.com/userinfo',
+  audience: 'https://api.signsfive.com/',
   responseType: 'token id_token',
   scope: 'openid profile email https://api.signsfive.com/roles https://api.signsfive.com/permissions https://api.signsfive.com/groups',
   leeway: 60,
@@ -27,10 +27,13 @@ export default class AuthService {
 
   static logout() {
     // Clear access token and ID token from local storage
-    window.localStorage.removeItem(ACCESS_TOKEN);
-    window.localStorage.removeItem(ID_TOKEN);
-    window.localStorage.removeItem(EXPIRES_AT);
-    window.localStorage.removeItme(PROFILE);
+    return new Promise((resolve) => {
+      window.localStorage.removeItem(ACCESS_TOKEN);
+      window.localStorage.removeItem(ID_TOKEN);
+      window.localStorage.removeItem(EXPIRES_AT);
+      window.localStorage.removeItem(PROFILE);
+      resolve(true);
+    });
   }
 
   static isAuthenticated() {
@@ -39,21 +42,32 @@ export default class AuthService {
   }
 
   static handleAuthentication() {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       AUTH0.parseHash((err, authResult) => {
-        if (authResult && authResult.accessToken && authResult.idToken) {
-          AUTH0.client.userInfo(authResult.accessToken, (err2, profile) => {
-            if (err2) {
-              reject(err2);
-            } else {
-              AuthService.setIdToken(authResult.idToken);
-              AuthService.setAccessToken(authResult.accessToken);
-              AuthService.setProfile(profile);
-              resolve({idToken: authResult.idToken, accessToken: authResult.accessToken, profile});
-            }
-          });
+        if (authResult) {
+          const { accessToken, idToken } = authResult;
+          if (accessToken && idToken) {
+            AUTH0.client.userInfo(accessToken, (err2, profile) => {
+              if (err2) {
+                reject(err2);
+              } else {
+                AuthService.setIdToken(idToken);
+                AuthService.setAccessToken(accessToken);
+                AuthService.setProfile(profile);
+                resolve({
+                  idToken,
+                  accessToken,
+                  profile,
+                });
+              }
+            });
+          } else {
+            reject(new Error('No hash to parse!'));
+          }
         } else if (err) {
           reject(err);
+        } else {
+          resolve(null);
         }
       });
     });
@@ -107,6 +121,6 @@ export default class AuthService {
       return true;
     }
 
-    return (date.valueOf() > ((new Date()).valueOf()));
+    return !(date.valueOf() > ((new Date()).valueOf()));
   }
 }

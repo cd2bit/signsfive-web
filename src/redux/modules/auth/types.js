@@ -1,5 +1,8 @@
+export const LOGIN_STATUS = 'LOGIN_STATUS';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const NOT_LOGGED_IN = 'NOT_LOGGED_IN';
+export const IS_LOGGED_IN = 'IS_LOGGED_IN';

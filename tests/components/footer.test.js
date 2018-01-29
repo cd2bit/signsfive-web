@@ -9,7 +9,7 @@ describe('<Footer />', () => {
     wrapper = shallow(<Footer />); // eslint-disable-line react/jsx-filename-extension
   });
 
-  it('Footer tag exists', () => {
+  it('renders footer element', () => {
     expect(wrapper.find('footer').length).toBe(1);
   });
 });

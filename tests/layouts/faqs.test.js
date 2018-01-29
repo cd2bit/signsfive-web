@@ -9,7 +9,7 @@ describe('<Faqs />', () => {
     wrapper = shallow(<Faqs />); // eslint-disable-line react/jsx-filename-extension
   });
 
-  it('Title tag present', () => {
+  it('renders element', () => {
     expect(wrapper.find('h2').text()).toEqual('FAQs');
   });
 });

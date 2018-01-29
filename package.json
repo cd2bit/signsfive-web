@@ -45,7 +45,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/app.{js,jsx}",
-      "src/{components,layouts}/**/*.{js,jsx}",
+      "src/{containers,components,layouts}/**/*.{js,jsx}",
       "src/redux/**/*.{js,jsx}"
     ],
     "coverageDirectory": "./coverage/",
@@ -79,7 +79,8 @@
       "web.jsx",
       "jsx",
       "node"
-    ]
+    ],
+    "verbose": true
   },
   "babel": {
     "presets": [
@@ -92,7 +93,10 @@
       "airbnb"
     ],
     "globals": {
-      "shallow": true
+      "shallow": true,
+      "mount": true,
+      "spy": true,
+      "stub": true
     }
   },
   "devDependencies": {
@@ -130,6 +134,7 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.0.0",
     "redux-devtools": "^3.4.1",
+    "sinon": "^4.2.2",
     "style-loader": "^0.18.2",
     "sw-precache-webpack-plugin": "^0.11.4",
     "url-loader": "^0.5.9",

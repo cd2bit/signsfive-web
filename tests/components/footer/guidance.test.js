@@ -9,7 +9,7 @@ describe('<FooterGuidance />', () => {
     wrapper = shallow(<FooterGuidance />); // eslint-disable-line react/jsx-filename-extension
   });
 
-  it('FooterGuidance tag exists', () => {
+  it('renders element', () => {
     expect(wrapper.find('h6').length).toBe(1);
   });
 });
