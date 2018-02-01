@@ -13,4 +13,6 @@ deploy:
   provider: heroku
   api_key:
     secure: hxgmHTi6LRDi7DUYZKpfxviFDL7hVgimPDm87EX+9NVbRHWSxGQSzX2PYWFE53uS7XdBL5c7hjDaV+U7CoKRnw3IRjWQzNGzOP3RzXYSGTAhsXjBPe1hAx/ex3jGwL+kQrdxMH39ddzq70GSuSIZXLEADnb9lnOjwbieIQVFieufJQIm8y1swsjukMzEANQRM8W+rIatTioXk/uIes9TDaOmPQZZtQ9/wXeKrtmOj6BR6iSy1C+/PMrmmpfSz4drzieMdYU2nPAdolLrK83b/B78PhEgGSkK4XQ3UmMJRCeH64UzuqEgWu3s/KG7/LDfn2FgyMo1Gw6b58MpBY0Tp8DKRoDpj21Wd82DsTvnqWZ6qTwMruxYQNvezrvkNt5XPOCDNj/ShkMHMGehRfarmVf8nMlpIav/KTk1vQgl0gxZDPqDQFtkWcMKy2FMjjcYWjdqINbYjnEKYV7qJu573CJ1aXTLmKwr/bD98zJAJTlldlYq0o+SSf3DyUTmd0erKIrVPsXebQOGHTBPDOAdvq7H4BWFaEijtVPpkFMWHYSgK3Fv+wUgeAtqyoAeE7mke7cJAi9Ie9GqxWLNqc2cLB/AVsZZyChETE8GHnJlAjoCHxT1Sn92ZndpKJowbeExTLGIXHAayAfEQGqMvnkYTBwDR9ZZ7Ty7GO+xF/C3zFg=
-    app: signsfive-web-staging
+    app: 
+      develop: signsfive-web-staging
+      master: signsfive-web-production
