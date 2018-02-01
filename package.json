@@ -39,8 +39,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "ci": "npm run lint && npm run test && codecov",
     "test:coverage": "npm run test -- --coverage",
-    "deploy": "npm run build && gh-pages -d build",
-    "postinstall": "npm run build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
