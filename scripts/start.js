@@ -4,6 +4,9 @@
 process.env.BABEL_ENV = process.env.BABEL_ENV || 'development';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+console.log('Running ./scripts/start.js');
+console.log('NODE_ENV: ', process.env.NODE_ENV);
+
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
