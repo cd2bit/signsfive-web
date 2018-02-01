@@ -3,9 +3,15 @@ cache:
   directories:
   - node_modules
 node_js:
- - "8"
+- '8'
 after_success:
 - npm run ci
-
 notifications:
   email: false
+deploy:
+  provider: heroku
+  app:
+    develop: signsfive-web-staging
+    master: signsfive-web-production
+  api_key:
+    secure: aJ87xfa6vljl7nofDOsCWsN7R0raNdjrgYAp1Vxj4Gm/uyZIlYcMRCqZ65J2HRI4edLfw+B+9s5G7+OSHcbN3UTGmyzYUUYakD/kKLF9YNUDpm6R81qsu9P/4+ge4b+nPtZ21+q9wjLUYI3nvJ5Z6D74TSb4jHRMWAzbVGsvxZsqZSENCY9KJvBbkqq8SA7CfF0ix4pSZTjIo73ZID2LGQju7NgP4JDWtbykjuqvVFPF+BPDYBVuYzhRzKDxPl+cj7UrndoXqi+EdJu6B3kvhxYVoqyhRfzRnTXbJl5qDp0bQbtYerDC2B7P+0uuobOLyJ+V0dK/C1A5dkHxfN52wx1UJN7BBrPihbMPSwirDqfTCbBm8QPJKm6zssU1Vp9yQQGqnB0MjuEtj5TtbLQ32kqOwg5fIbjNE2xCWiRfVWhgxwD+Q9HEf0SoTJrD9451bs4OTSv+13WgG9JjvtqPUd1fT/01/YWj13p7NfXvZbYITyYxGOYuor5eU80IV6czT7gSdvTJn2YC1ZmEXpt/AOn6Pa/E27MVavVJD5uvc67zTX264YP//Y7w6Zysogr4nIBtjeXrQQV2mQGkIaf754SHXXVUOYfCCYBlBz+xQppTJ24cEFfsLSH47XTECOr4LzZs9QH6s2V6nuI7C9Ib5Qc2V7CUS4rXvpTOOcHslJk=

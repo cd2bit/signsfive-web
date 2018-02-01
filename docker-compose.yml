@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  web:
+    container_name: signsfive_web
+    image: node:8
+    user: node

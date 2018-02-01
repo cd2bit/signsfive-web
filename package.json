@@ -5,9 +5,9 @@
     "node": "9.2.0"
   },
   "private": true,
-  "homepage": "https://deafchi.github.io",
+  "homepage": "https://signsfive.com",
   "dependencies": {
-    "auth0-js": "^9.0.2",
+    "auth0-js": "^9.1.3",
     "autoprefixer": "7.1.2",
     "bootstrap": "^4.0.0-beta.2",
     "chalk": "1.1.3",
@@ -39,8 +39,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "ci": "npm run lint && npm run test && codecov",
     "test:coverage": "npm run test -- --coverage",
-    "deploy": "npm run build && gh-pages -d build",
-    "postinstall": "npm run build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
