@@ -5,7 +5,7 @@
     "node": "9.2.0"
   },
   "private": true,
-  "homepage": "http://signsfive.com",
+  "homepage": "https://signsfive.com",
   "dependencies": {
     "auth0-js": "^9.1.3",
     "autoprefixer": "7.1.2",
