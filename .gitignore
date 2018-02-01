@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-package-lock.json
+
+# "This file is intended to be committed into source repositories ..."
+# see for more details: https://docs.npmjs.com/files/package-lock.json
+# package-lock.json # DO NOT UNCOMMENT THIS
 
 # dependencies
 /node_modules
