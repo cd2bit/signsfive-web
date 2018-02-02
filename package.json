@@ -34,14 +34,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "coverage": "npm run test:jest -- --coverage && coveralls < coverage/lcov.info",
     "lint": "eslint ./src ./tests --ext js,jsx",
-    "test": "node scripts/test.js --env=jsdom",
-    "ci": "npm run lint && npm run test && codecov",
-    "test:coverage": "npm run test -- --coverage",
+    "test:scripts": "node scripts/test.js --env=jsdom",
+    "test": "npm run lint && npm run test:scripts",
+    "test:ci": "npm run test && codecov",
     "deploy": "npm run build && gh-pages -d build",
-    "preversion": "npm test",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "preversion": "git checkout develop && npm install && npm test",
+    "postversion": "git push && git push --tags"
   },
   "jest": {
     "collectCoverageFrom": [
