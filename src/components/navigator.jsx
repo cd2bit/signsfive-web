@@ -1,13 +1,9 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
+import WebPackageVersion from './web-package-version';
 import SignInContainer from '../containers/navigator/sign-in';
 import SubmitASignContainer from '../containers/navigator/submit-a-sign';
-
-const navStyles = {
-  fontSize: '0.5em',
-  letterSpacing: '0.2em',
-};
 
 const Navigator = () => (
   <nav className="bg-dark">
@@ -16,11 +12,7 @@ const Navigator = () => (
         <div className="col-6">
           <a className="navbar-brand text-white tracked" href="#home">
             SignsFive
-            <sup>
-              <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>
-                alpha
-              </span>
-            </sup>
+            <WebPackageVersion />
           </a>
         </div>
         <div className="col-6">
