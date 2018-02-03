@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchBar from '../../src/components/search-bar';
 
-describe('SearchBar', () => {
+describe('<SearchBar />', () => {
   let wrapper;
 
   beforeEach(() => {
