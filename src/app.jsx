@@ -12,6 +12,7 @@ import Header from './layouts/header';
 import Main from './layouts/main';
 import About from './layouts/about';
 import Faqs from './layouts/faqs';
+import SubmitASign from './components/submit-a-sign';
 
 import SearchBar from './components/search-bar';
 import Footer from './components/footer';
@@ -29,6 +30,7 @@ class App extends Component {
               <Route exact path="/" component={Main} />
               <Route exact path="/about" component={About} />
               <Route exact path="/faqs" component={Faqs} />
+              <Route exact path="/submit-a-sign" component={SubmitASign} />
             </Switch>
           </div>
           <Footer />
