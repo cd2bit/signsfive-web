@@ -1,12 +1,12 @@
 import React from 'react';
 
-import WebPackageVersion from '../../src/components/web-package-version';
+import PackageVersion from '../../src/components/package-version';
 
-describe('<WebPackageVersion />', () => {
+describe('<PackageVersion />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<WebPackageVersion />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<PackageVersion />); // eslint-disable-line react/jsx-filename-extension
   });
 
   it('renders elements', () => {

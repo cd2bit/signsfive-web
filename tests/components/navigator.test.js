@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Navigator from '../../src/components/navigator';
 
-import WebPackageVersion from '../../src/components/web-package-version';
+import PackageVersion from '../../src/components/package-version';
 import SignInContainer from '../../src/containers/navigator/sign-in';
 import SubmitASignContainer from '../../src/containers/navigator/submit-a-sign';
 
@@ -19,8 +19,8 @@ describe('<Navigator />', () => {
     expect(wrapper.find('a').length).toBe(1);
   });
 
-  it('renders <WebPackageVersion />', () => {
-    expect(wrapper.find(WebPackageVersion).length).toBe(1);
+  it('renders <PackageVersion />', () => {
+    expect(wrapper.find(PackageVersion).length).toBe(1);
   });
 
   it('renders <SignInContainer />', () => {
