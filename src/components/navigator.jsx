@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-import WebPackageVersion from './web-package-version';
+import PackageVersion from './package-version';
 import SignInContainer from '../containers/navigator/sign-in';
 import SubmitASignContainer from '../containers/navigator/submit-a-sign';
 
@@ -12,7 +12,7 @@ const Navigator = () => (
         <div className="col-6">
           <a className="navbar-brand text-white tracked" href="#home">
             SignsFive
-            <WebPackageVersion />
+            <PackageVersion />
           </a>
         </div>
         <div className="col-6">

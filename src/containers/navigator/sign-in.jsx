@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { authActions } from '../../redux/modules/auth';
 
-export class SignIn extends React.Component {
+export class SignIn extends Component {
   componentWillMount() {
     this.props.loginStatus();
   }

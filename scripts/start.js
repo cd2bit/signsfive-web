@@ -4,8 +4,6 @@
 process.env.BABEL_ENV = process.env.BABEL_ENV || 'development';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-process.env.REACT_APP_VERSION = process.env.REACT_APP_VERSION || 'x.y.z';
-
 console.log('Running ./scripts/start.js');
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 
