@@ -6,13 +6,14 @@ import thunkMiddleware from 'redux-thunk';
 import authMiddleware from './modules/auth/middleware';
 import rootReducer from './../redux/reducer';
 
+import { DEBUG } from '../constant';
 
 const middlewares = [
   thunkMiddleware,
   authMiddleware,
 ];
 
-if (process.env.NODE_ENV !== 'production') {
+if (DEBUG) {
   middlewares.push(createLogger());
 }
 
