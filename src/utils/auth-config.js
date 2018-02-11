@@ -1,3 +1,5 @@
+import { ENVIRONMENT } from '../constant';
+
 const AUTH_CONFIG = {
   test: {
     domain: 'signsfive.auth0.test',
@@ -16,4 +18,4 @@ const AUTH_CONFIG = {
   },
 };
 
-export default AUTH_CONFIG[process.env.NODE_ENV];
+export default AUTH_CONFIG[ENVIRONMENT];

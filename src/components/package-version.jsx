@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { APP_VERSION } from '../constant';
+
 const navStyles = {
   fontSize: '0.5em',
   letterSpacing: '0.2em',
@@ -10,7 +12,7 @@ class PackageVersion extends Component {
     super(props);
 
     this.state = {
-      version: process.env.npm_package_version,
+      version: APP_VERSION,
     };
   }
 
