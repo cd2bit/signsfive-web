@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 
+import { APP_VERSION } from '../constant';
 import styles from '../styles/components/package-version.scss';
 
 class PackageVersion extends Component {
@@ -8,7 +9,7 @@ class PackageVersion extends Component {
     super(props);
 
     this.state = {
-      version: process.env.npm_package_version,
+      version: APP_VERSION,
     };
   }
 
