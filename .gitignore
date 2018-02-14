@@ -7,6 +7,9 @@
 # dependencies
 /node_modules
 
+# documentation
+/docs
+
 # testing
 /coverage
 

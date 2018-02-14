@@ -1,12 +1,18 @@
 import * as types from './types';
 import AuthService from '../../../utils/AuthService';
-
+/**
+ * Returns the action-creator to request check login status
+ * @return {{type: string}} [types.LOGIN_STATUS]
+ */
 export function loginStatus() {
   return {
     type: types.LOGIN_STATUS,
   };
 }
-
+/**
+ * Returns the action-creator to request to login
+ * @return {{type: string}} [types.LOGIN_REQUEST]
+ */
 export function loginRequest() {
   return {
     type: types.LOGIN_REQUEST,
@@ -58,8 +64,10 @@ export function logoutSuccess({ isLoggedOut }) {
 
 export function loginUser() {
   return (dispatch) => {
-    dispatch(loginRequest());
+    const loginRequestObject = loginRequest();
+    dispatch(loginRequestObject);
     AuthService.login();
+    return loginRequestObject;
   };
 }
 

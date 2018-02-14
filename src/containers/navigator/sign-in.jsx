@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { authActions } from '../../redux/modules/auth';
-
+/**
+ * This is SignIn
+ * @reactProps {boolean} isAuthenticated {@link AuthService.isAuthenticated}
+ * @reactProps {function} loginStatus - this is prop2
+ * @reactProps {function} loginUser - this is prop2
+ * @reactProps {function} logoutUser - this is prop2
+ */
 export class SignIn extends Component {
   componentWillMount() {
     this.props.loginStatus();

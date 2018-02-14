@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,26 +17,24 @@ import Faqs from './components/faqs';
 
 import Footer from './components/footer';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Header />
-          <SearchBar />
-          <div className="body">
-            <Switch>
-              <Route exact path="/" component={Main} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/faqs" component={Faqs} />
-            </Switch>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
-}
+/**
+ * this is App.
+ */
+const App = () => (
+  <Router>
+    <div className="App">
+      <Header />
+      <SearchBar />
+      <div className="body container">
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/faqs" component={Faqs} />
+        </Switch>
+      </div>
+      <Footer />
+    </div>
+  </Router>
+);
 
 export default App;
