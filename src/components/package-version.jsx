@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 import { APP_VERSION } from '../constant';
-
-const navStyles = {
-  fontSize: '0.5em',
-  letterSpacing: '0.2em',
-};
+import styles from '../styles/components/package-version.scss';
 
 class PackageVersion extends Component {
   constructor(props) {
@@ -19,7 +16,7 @@ class PackageVersion extends Component {
   render() {
     return (
       <sup>
-        <span className="badge badge-pill badge-secondary text-uppercase" style={navStyles}>
+        <span className={cx(styles.version, 'badge badge-pill badge-secondary text-uppercase')}>
           alpha {this.state.version}
         </span>
       </sup>
@@ -28,4 +25,3 @@ class PackageVersion extends Component {
 }
 
 export default PackageVersion;
-
