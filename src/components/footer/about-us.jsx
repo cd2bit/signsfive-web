@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FooterAboutUs = () => (
   <div className="col-md-2 tracked">
@@ -6,9 +7,9 @@ const FooterAboutUs = () => (
       <h6 className="footer-type text-uppercase text-secondary">Connect</h6>
       <ul className="footer-type list-unstyled">
         <li className="py-1">
-          <a href="#about-us" className="text-dark">
+          <Link to="/about" className="text-dark">
             About us
-          </a>
+          </Link>
         </li>
         <li className="py-1">
           <a href="#email" className="text-dark">

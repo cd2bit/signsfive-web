@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import './styles/app.css';
+import './styles/main.css';
 
 
 import Header from './layouts/header';
@@ -24,7 +25,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <SearchBar />
-          <div className="body container">
+          <div className="body">
             <Switch>
               <Route exact path="/" component={Main} />
               <Route exact path="/about" component={About} />
