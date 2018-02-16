@@ -96,7 +96,6 @@
     ],
     "globals": {
       "jestExpect": true,
-      "mock": true,
       "mount": true,
       "shallow": true,
       "spy": true,
