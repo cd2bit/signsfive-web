@@ -47,15 +47,16 @@
     "collectCoverageFrom": [
       "src/app.{js,jsx}",
       "src/{containers,components,layouts}/**/*.{js,jsx}",
-      "src/redux/**/*.{js,jsx}"
+      "src/redux/**/*.{js,jsx}",
+      "!src/redux/*.{js,jsx}"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/config/polyfills.js",
-      "<rootDir>/tests/setupTests.js",
       "jest-localstorage-mock"
     ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setupTests.js",
     "testMatch": [
       "<rootDir>/(tests|src)/**/__tests__/**/*.js?(x)",
       "<rootDir>/(tests|src)/**/?(*.)(spec|test).js?(x)"
@@ -94,8 +95,10 @@
       "airbnb"
     ],
     "globals": {
-      "shallow": true,
+      "jestExpect": true,
+      "mock": true,
       "mount": true,
+      "shallow": true,
       "spy": true,
       "stub": true
     },
@@ -103,19 +106,9 @@
       "jsx-a11y/anchor-is-valid": [
         "error",
         {
-          "components": [
-            "Link"
-          ],
-          "specialLink": [
-            "to",
-            "hrefLeft",
-            "hrefRight"
-          ],
-          "aspects": [
-            "noHref",
-            "invalidHref",
-            "preferButton"
-          ]
+          "components": [ "Link" ],
+          "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+          "aspects": [ "noHref", "invalidHref", "preferButton" ]
         }
       ]
     }

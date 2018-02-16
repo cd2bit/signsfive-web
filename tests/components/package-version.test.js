@@ -10,7 +10,7 @@ describe('<PackageVersion />', () => {
   });
 
   it('renders elements', () => {
-    expect(wrapper.find('sup').length).toBe(1);
-    expect(wrapper.find('.badge').length).toBe(1);
+    expect(wrapper.find('sup')).to.have.lengthOf(1);
+    expect(wrapper.find('.badge')).to.have.lengthOf(1);
   });
 });

@@ -1,11 +1,14 @@
 import 'raf/polyfill';
 
+import { matchers } from 'jest-json-schema';
+
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { spy, stub } from 'sinon';
 
-import { expect } from 'chai';
+// we specify export as "chaiExpect", so we do not accidently override jest expect
+import { expect as chaiExpect } from 'chai';
 
 // React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
@@ -19,6 +22,9 @@ global.render = render;
 global.spy = spy;
 global.stub = stub;
 
-// Make Chai functions available in all test files without importing
-global.expect = expect;
+// Make jest expect available in all test files
+global.jestExpect = expect;
+global.jestExpect.extend(matchers);
 
+// Make Chai functions available in all test files without importing
+global.expect = chaiExpect;

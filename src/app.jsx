@@ -8,13 +8,13 @@ import {
 import './styles/app.css';
 import './styles/main.css';
 
-
-import Header from './layouts/header';
-import Main from './layouts/main';
-import About from './layouts/about';
-import Faqs from './layouts/faqs';
-
+import Header from './components/header';
 import SearchBar from './components/search-bar';
+
+import Main from './components/main';
+import About from './components/about';
+import Faqs from './components/faqs';
+
 import Footer from './components/footer';
 
 // eslint-disable-next-line react/prefer-stateless-function

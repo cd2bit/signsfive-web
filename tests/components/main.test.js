@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Main from '../../src/layouts/main';
+import Main from '../../src/components/main';
 
 describe('<Main />', () => {
   let wrapper;
@@ -10,6 +10,6 @@ describe('<Main />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('.main').length).toBe(1);
+    expect(wrapper.find('.main')).to.have.lengthOf(1);
   });
 });

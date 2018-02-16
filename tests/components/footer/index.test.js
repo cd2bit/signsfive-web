@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Footer from '../../src/components/footer';
+import Footer from '../../../src/components/footer';
 
 describe('<Footer />', () => {
   let wrapper;
@@ -10,6 +10,6 @@ describe('<Footer />', () => {
   });
 
   it('renders footer element', () => {
-    expect(wrapper.find('footer').length).toBe(1);
+    expect(wrapper.find('footer')).to.have.lengthOf(1);
   });
 });

@@ -10,6 +10,6 @@ describe('<FooterSocial />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('a').length).toBe(3);
+    expect(wrapper.find('a')).to.have.lengthOf(3);
   });
 });

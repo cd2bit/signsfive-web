@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
-import pathToMemberImage from '../../lib/teamLoader';
-
 export default class Member extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+
+    // eslint-disable-next-line global-require
+    this.pathToMemberImage = require('../../lib/teamLoader').default;
+  }
+
   render() {
     const {
       firstName,
@@ -12,15 +16,22 @@ export default class Member extends Component {
       identity,
       role,
     } = this.props.data;
+
     return (
       <div className="col-3">
-        <img className="about-image rounded-circle" src={pathToMemberImage(`./${firstName}${lastName}.png`)} alt={`${firstName}${lastName}`} />
+        <img className="about-image rounded-circle" src={this.pathToMemberImage(`./${firstName}${lastName}.png`)} alt={`Profile Photography of ${firstName} ${lastName}`} />
         <p className="text-center pt-3">
-          <strong>{firstName} {lastName}</strong>
+          <strong>
+            {firstName} {lastName}
+          </strong>
           <br />
-          <span className="badge badge-pill badge-secondary about-team--identity">{identity}</span>
+          <span className="badge badge-pill badge-secondary about-team--identity">
+            {identity}
+          </span>
         </p>
-        <p className="text-center">{role}</p>
+        <p className="text-center">
+          {role}
+        </p>
       </div>
     );
   }

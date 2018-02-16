@@ -5,6 +5,7 @@ import teamData from '../../data/team.json';
 class Team extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       team: teamData,
     };

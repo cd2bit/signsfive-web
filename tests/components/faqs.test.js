@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Faqs from '../../src/layouts/faqs';
+import Faqs from '../../src/components/faqs';
 
 describe('<Faqs />', () => {
   let wrapper;
@@ -10,6 +10,6 @@ describe('<Faqs />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('h2').text()).toEqual('FAQs');
+    expect(wrapper.find('h2').text()).to.have.string('FAQs');
   });
 });
