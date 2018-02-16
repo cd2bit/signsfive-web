@@ -1,6 +1,6 @@
 import React from 'react';
 
-import About from '../../src/layouts/about';
+import About from '../../../src/components/about';
 
 describe('<About />', () => {
   let wrapper;
@@ -10,6 +10,6 @@ describe('<About />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('.about').length).toBe(1);
+    expect(wrapper.find('.about')).to.have.lengthOf(1);
   });
 });

@@ -21,12 +21,12 @@ describe('<SubmitASign />', () => {
 
   describe('when isAuthenticated is true', () => {
     it('renders element with button', () => {
-      expect(wrapper.find('button').length).toBe(1);
-      expect(wrapper.find('span').length).toBe(1);
+      expect(wrapper.find('button')).to.have.lengthOf(1);
+      expect(wrapper.find('span')).to.have.lengthOf(1);
     });
 
     it('labels the button with "Log Out"', () => {
-      expect(wrapper.find('span').text()).toBe('Submit a Sign');
+      expect(wrapper.find('span').text()).to.have.string('Submit a Sign');
     });
   });
 
@@ -37,8 +37,8 @@ describe('<SubmitASign />', () => {
         isAuthenticated={isAuthenticatedBool}
       />);
 
-      expect(wrapper.find('button').length).toBe(0);
-      expect(wrapper.find('span').length).toBe(1);
+      expect(wrapper.find('button')).to.have.lengthOf(0);
+      expect(wrapper.find('span')).to.have.lengthOf(1);
     });
   });
 });

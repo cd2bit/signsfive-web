@@ -11,6 +11,6 @@ describe('<App />', () => {
   });
 
   it('renders <SearchBar />', () => {
-    expect(wrapper.find(SearchBar).length).toBe(1);
+    expect(wrapper.find(SearchBar)).to.have.lengthOf(1);
   });
 });

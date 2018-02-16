@@ -1,0 +1,43 @@
+[
+  {
+    "firstName": "Jason",
+    "lastName": "Salerno",
+    "identity": "DeafBlind",
+    "role": "Lead Product / Fullstack Development"
+  }, {
+    "firstName": "Giordon",
+    "lastName": "Stark",
+    "identity": "Deaf/Hard-of-Hearing",
+    "role": "Fullstack Development"
+  }, {
+    "firstName": "Melissa",
+    "lastName": "Manak",
+    "identity": "Deaf/Hard-of-Hearing",
+    "role": "Interaction Design / User Experience"
+  }, {
+    "firstName": "Nick",
+    "lastName": "Ng",
+    "identity": "Deaf/Hard-of-Hearing",
+    "role": "Front-end Design / Project Manager"
+  }, {
+    "firstName": "Sandy",
+    "lastName": "Tiana",
+    "identity": "Deaf/Hard-of-Hearing",
+    "role": "Front-end Design / Project Manager"
+  }, {
+    "firstName": "Emily",
+    "lastName": "Wang",
+    "identity": "Hearing",
+    "role": "Human-Computer Interaction / Web Development"
+  }, {
+    "firstName": "rgchi",
+    "lastName": "",
+    "identity": "Hearing",
+    "role": "Web Development / Interpreting Consultant"
+  }, {
+    "firstName": "Suzanne",
+    "lastName": "Salerno",
+    "identity": "Hearing",
+    "role": "Developer Apprentice"
+  }
+]

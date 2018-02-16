@@ -6,14 +6,15 @@ import {
 } from 'react-router-dom';
 
 import './styles/app.css';
+import './styles/main.css';
 
-
-import Header from './layouts/header';
-import Main from './layouts/main';
-import About from './layouts/about';
-import Faqs from './layouts/faqs';
-
+import Header from './components/header';
 import SearchBar from './components/search-bar';
+
+import Main from './components/main';
+import About from './components/about';
+import Faqs from './components/faqs';
+
 import Footer from './components/footer';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -24,7 +25,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <SearchBar />
-          <div className="body container">
+          <div className="body">
             <Switch>
               <Route exact path="/" component={Main} />
               <Route exact path="/about" component={About} />

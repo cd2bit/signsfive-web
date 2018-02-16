@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* @font-face -----*/
+
+@font-face {
+  font-family: 'Inter-UI-Black';
+  src: url('/fonts/Inter-UI-Black.woff2') format('woff2');
+  src: url('/fonts/Inter-UI-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter-UI-Bold';
+  src: url('/fonts/Inter-UI-Bold.woff2') format('woff2');
+  src: url('/fonts/Inter-UI-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter-UI-Regular';
+  src: url('/fonts/Inter-UI-Regular.woff2') format('woff2');
+  src: url('/fonts/Inter-UI-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter-UI-RegularItalic';
+  src: url('/fonts/Inter-UI-RegularItalic.woff2') format('woff2');
+  src: url('/fonts/Inter-UI-RegularItalic.woff') format('woff');
+}
+
+/* type-base -----*/
+body { font-family: 'Inter-UI-Regular', Helvetica, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Inter-UI-Black', Helvetica, sans-serif;}
+
+strong { font-family: 'Inter-UI-Bold', Helvetica, sans-serif;}
+
+/* type-footer -----*/
+
+.footer-type { font-size: 0.75em; }
+
+.about-team--identity { font-size: 0.6em; text-transform: uppercase; letter-spacing: 0.1em;}
+
+/* letter-spacing -----*/
+
+.tracked { letter-spacing: .05em; }
+
+.tracked-tight { letter-spacing: -.05em; }
+
+.tracked-mega { letter-spacing: .20em; }
+
+/* horizontal-rule-tag-----*/
+
+hr { border-top: 2px solid #007bff; }
+
+/* wang-manak-css -----*/
+
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.about-name{
+  font-size: larger;
+}
+
+.about-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+}
+
+/* https://gist.github.com/petehouston/85dd33210c0764eeae55 */
+.about-title {
+    top: 40%;
+    left: 0;
+    width: 100%;
+}
+
+.about-title h1 {
+    color: #fff;
+    background-color: #212529;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    padding: 20px;
+}
+
+.group-photo {
+    width: 50%;
+    border: 0 none;
+    box-shadow: none;
+    margin:0;
+    padding:0;
+}
+
+/* https://spigotdesign.com/crop-any-size-image-with-css/ */
+.group-photo-container {
+    width: 100%;
+    overflow: hidden;
+    margin: -1000px 0px 0px -1000px auto;
+    padding: 0;
+}
+.group-photo-container img {
+    width: 100%;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-import FooterGuidance from './footer/guidance';
-import FooterAboutUs from './footer/about-us';
-import FooterChicagoBanner from './footer/chicago-banner';
-import FooterSocial from './footer/social';
+import FooterGuidance from './guidance';
+import FooterAboutUs from './about-us';
+import FooterChicagoBanner from './chicago-banner';
+import FooterSocial from './social';
 
 const Footer = () => (
   <footer className="bg-light">
@@ -21,7 +21,6 @@ const Footer = () => (
         <FooterAboutUs />
       </div>
     </div>
-    {/* footer-banner */}
     <div className=" container">
       <div className="bg-dark">
         <div className="row text-center py-4">

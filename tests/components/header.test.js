@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../src/layouts/header';
+import Header from '../../src/components/header';
 import Navigator from '../../src/components/navigator';
 
 describe('<Header />', () => {
@@ -11,10 +11,10 @@ describe('<Header />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('.header').length).toBe(1);
+    expect(wrapper.find('.header')).to.have.lengthOf(1);
   });
 
   it('renders <Navigator />', () => {
-    expect(wrapper.find(Navigator).length).toBe(1);
+    expect(wrapper.find(Navigator)).to.have.lengthOf(1);
   });
 });

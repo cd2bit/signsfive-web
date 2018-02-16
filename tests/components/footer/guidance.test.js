@@ -10,6 +10,6 @@ describe('<FooterGuidance />', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('h6').length).toBe(1);
+    expect(wrapper.find('h6')).to.have.lengthOf(1);
   });
 });

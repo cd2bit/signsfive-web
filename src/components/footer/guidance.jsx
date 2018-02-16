@@ -8,10 +8,14 @@ const FooterGuidance = () => (
       </h6>
       <ul className="footer-type list-unstyled">
         <li className="py-1">
-          <a href="#how-it-works" className="text-dark">How it works</a>
+          <a href="#how-it-works" className="text-dark">
+            How it works
+          </a>
         </li>
         <li className="py-1">
-          <a href="#help-center" className="text-dark">Help Center</a>
+          <a href="#help-center" className="text-dark">
+            Help Center
+          </a>
         </li>
       </ul>
     </div>

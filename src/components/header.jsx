@@ -3,7 +3,7 @@ import React from 'react';
 import Navigator from '../components/navigator';
 
 const Header = () => (
-  <div className="header container">
+  <div className="header">
     <Navigator />
   </div>
 );

@@ -10,6 +10,6 @@ describe('<FooterChicagoBanner/>', () => {
   });
 
   it('renders element', () => {
-    expect(wrapper.find('i').length).toBe(1);
+    expect(wrapper.find('i')).to.have.lengthOf(1);
   });
 });

@@ -15,24 +15,24 @@ describe('<Navigator />', () => {
   });
 
   it('renders elements', () => {
-    expect(wrapper.find('nav').length).toBe(1);
-    expect(wrapper.find('a').length).toBe(1);
+    expect(wrapper.find('nav')).to.have.lengthOf(1);
+    expect(wrapper.find('a')).to.have.lengthOf(1);
   });
 
   it('renders <PackageVersion />', () => {
-    expect(wrapper.find(PackageVersion).length).toBe(1);
+    expect(wrapper.find(PackageVersion)).to.have.lengthOf(1);
   });
 
   it('renders <SignInContainer />', () => {
-    expect(wrapper.find(SignInContainer).length).toBe(1);
+    expect(wrapper.find(SignInContainer)).to.have.lengthOf(1);
   });
 
   it('renders <SubmitASignContainer />', () => {
-    expect(wrapper.find(SubmitASignContainer).length).toBe(1);
+    expect(wrapper.find(SubmitASignContainer)).to.have.lengthOf(1);
   });
 
   // This will be next step once we implement the Links instead of a href
   xit('renders Links', () => {
-    expect(wrapper.find(Link).length).toBe(2);
+    expect(wrapper.find(Link)).to.have.lengthOf(2);
   });
 });

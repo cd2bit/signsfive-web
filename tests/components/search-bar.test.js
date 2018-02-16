@@ -10,7 +10,7 @@ describe('<SearchBar />', () => {
   });
 
   it('renders elements', () => {
-    expect(wrapper.find('.search-bar').length).toBe(1);
-    expect(wrapper.find('input').length).toBe(1);
+    expect(wrapper.find('.search-bar')).to.have.lengthOf(1);
+    expect(wrapper.find('input')).to.have.lengthOf(1);
   });
 });

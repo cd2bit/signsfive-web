@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchBar = () => (
-  <div className="container search-bar">
+  <div className=" search-bar">
     <form className="py-1 py-md-2 mx-0 sticky-top bg-dark">
       {/* <!--search-input--> */}
       <div className="input-group container">
