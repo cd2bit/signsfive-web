@@ -1,9 +1,6 @@
-import { spy, stub } from 'sinon';
-import { assert, expect } from 'chai';
-
-import { authTypes } from '../';
-import authMiddleware from '../middleware';
-import AuthService from '../../../../utils/AuthService';
+import { authTypes } from '../../../src/redux/modules/auth';
+import authMiddleware from '../../../src/redux/modules/auth/middleware';
+import AuthService from '../../../src/utils/AuthService';
 
 // NOTE: Copied majority middleware test from react-thunk
 // https://github.com/gaearon/redux-thunk/blob/master/test/index.js

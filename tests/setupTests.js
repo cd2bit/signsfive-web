@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { spy, stub } from 'sinon';
 
 // we specify export as "chaiExpect", so we do not accidently override jest expect
-import { expect as chaiExpect } from 'chai';
+import { assert, expect as chaiExpect } from 'chai';
 
 // React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
@@ -27,4 +27,5 @@ global.jestExpect = expect;
 global.jestExpect.extend(matchers);
 
 // Make Chai functions available in all test files without importing
+global.assert = assert;
 global.expect = chaiExpect;

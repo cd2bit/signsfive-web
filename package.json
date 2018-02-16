@@ -58,7 +58,6 @@
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setupTests.js",
     "testMatch": [
-      "<rootDir>/(tests|src)/**/__tests__/**/*.js?(x)",
       "<rootDir>/(tests|src)/**/?(*.)(spec|test).js?(x)"
     ],
     "testEnvironment": "node",
@@ -95,6 +94,7 @@
       "airbnb"
     ],
     "globals": {
+      "assert": true,
       "jestExpect": true,
       "mount": true,
       "shallow": true,
@@ -105,9 +105,19 @@
       "jsx-a11y/anchor-is-valid": [
         "error",
         {
-          "components": [ "Link" ],
-          "specialLink": [ "to", "hrefLeft", "hrefRight" ],
-          "aspects": [ "noHref", "invalidHref", "preferButton" ]
+          "components": [
+            "Link"
+          ],
+          "specialLink": [
+            "to",
+            "hrefLeft",
+            "hrefRight"
+          ],
+          "aspects": [
+            "noHref",
+            "invalidHref",
+            "preferButton"
+          ]
         }
       ]
     }
