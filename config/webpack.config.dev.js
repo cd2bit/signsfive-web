@@ -1,6 +1,5 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -168,10 +167,17 @@ module.exports = {
                   loader: 'css-loader',
                   options: {
                     modules: true,
+                    sourceMap: true,
                     localIdentName: '[local]',
-                  }
+                  },
                 },
-                'postcss-loader',
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    config: { path: './config/postcss.config.js' },
+                    sourceMap: true,
+                  },
+                },
               ],
             }),
           },
@@ -189,7 +195,17 @@ module.exports = {
                     localIdentName: '[name]__[local]__[hash:base64:5]',
                   },
                 },
-                'sass-loader',
+                {
+                  loader: 'sass-loader',
+                  options: { sourceMap: true },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    config: { path: './config/postcss.config.js' },
+                    sourceMap: true,
+                   },
+                },
               ],
             }),
           },
