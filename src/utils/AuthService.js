@@ -89,7 +89,7 @@ export default class AuthService {
     window.localStorage.setItem(ACCESS_TOKEN, accessToken);
   }
 
-  static getReferer(referer) {
+  static getReferer() {
     return window.localStorage.getItem(REFERER);
   }
 

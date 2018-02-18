@@ -11,10 +11,15 @@ export class SignIn extends Component {
   }
 
   signInOrOut = () => {
-    const { loginUser, logoutUser, isAuthenticated } = this.props;
+    const {
+      loginUser,
+      logoutUser,
+      isAuthenticated,
+      location,
+    } = this.props;
 
     if (!isAuthenticated) {
-      loginUser(this.props.location.pathname);
+      loginUser(location.pathname);
     } else {
       logoutUser();
     }
@@ -44,6 +49,9 @@ SignIn.propTypes = {
   loginStatus: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
   logoutUser: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
