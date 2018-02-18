@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -64,7 +62,7 @@ module.exports = {
     // There are also additional JS chunk files if you use code splitting.
     chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
-    publicPath: publicPath,
+    publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
@@ -74,10 +72,11 @@ module.exports = {
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
     // https://github.com/facebookincubator/create-react-app/issues/253
-    modules: ['node_modules', paths.appNodeModules].concat(
+    modules: [
+      'node_modules',
+      paths.appNodeModules,
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
+    ].concat(process.env.NODE_PATH.split(path.delimiter).filter(Boolean)),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -158,7 +157,7 @@ module.exports = {
           {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
+              fallback: require.resolve('style-loader'),
               use: [
                 {
                   loader: 'css-loader',
@@ -169,7 +168,7 @@ module.exports = {
                   },
                 },
                 {
-                  loader: 'postcss-loader',
+                  loader: require.resolve('postcss-loader'),
                   options: {
                     config: { path: './config/postcss.config.js' },
                     sourceMap: true,
@@ -181,10 +180,10 @@ module.exports = {
           {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
+              fallback: require.resolve('style-loader'),
               use: [
                 {
-                  loader: 'css-loader',
+                  loader: require.resolve('css-loader'),
                   options: {
                     modules: true,
                     sourceMap: true,
@@ -193,11 +192,11 @@ module.exports = {
                   },
                 },
                 {
-                  loader: 'sass-loader',
+                  loader: require.resolve('sass-loader'),
                   options: { sourceMap: true },
                 },
                 {
-                  loader: 'postcss-loader',
+                  loader: require.resolve('postcss-loader'),
                   options: {
                     config: { path: './config/postcss.config.js' },
                     sourceMap: true,
@@ -271,7 +270,11 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ExtractTextPlugin({ filename: 'styles.css', allChunks: true, disable: process.env.NODE_ENV !== 'production' }),
+    new ExtractTextPlugin({
+      filename: 'styles.css',
+      allChunks: true,
+      disable: process.env.NODE_ENV !== 'production',
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

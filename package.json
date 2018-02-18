@@ -35,6 +35,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "serve": "serve -s build",
     "lint": "eslint ./src ./tests --ext js,jsx",
     "test:jest": "node scripts/test.js --env=jsdom --config=./config/.jestrc.json",
     "test": "npm run lint && npm run test:jest",
@@ -94,6 +95,7 @@
     "sinon": "^4.2.2",
     "style-loader": "^0.18.2",
     "sw-precache-webpack-plugin": "^0.11.4",
+    "uglifyjs-webpack-plugin": "^1.2.0",
     "url-loader": "^0.5.9",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3",
