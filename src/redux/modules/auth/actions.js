@@ -56,10 +56,10 @@ export function logoutSuccess({ isLoggedOut }) {
   };
 }
 
-export function loginUser() {
+export function loginUser({ referer }) {
   return (dispatch) => {
     dispatch(loginRequest());
-    AuthService.login();
+    AuthService.login(referer);
   };
 }
 

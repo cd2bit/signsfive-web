@@ -3,13 +3,15 @@ import Promise from 'promise';
 
 import AUTH0 from './auth-web';
 
+const REFERER = 'referer';
 const ID_TOKEN = 'id_token';
 const ACCESS_TOKEN = 'access_token';
 const EXPIRES_AT = 'expires_at';
 const PROFILE = 'profile';
 
 export default class AuthService {
-  static login() {
+  static login(referer) {
+    AuthService.setReferer(referer);
     AUTH0.authorize();
   }
 
@@ -20,6 +22,7 @@ export default class AuthService {
       window.localStorage.removeItem(ID_TOKEN);
       window.localStorage.removeItem(EXPIRES_AT);
       window.localStorage.removeItem(PROFILE);
+      window.localStorage.removeItem(REFERER);
       resolve(true);
     });
   }
@@ -84,6 +87,14 @@ export default class AuthService {
 
   static setAccessToken(accessToken) {
     window.localStorage.setItem(ACCESS_TOKEN, accessToken);
+  }
+
+  static getReferer(referer) {
+    return window.localStorage.getItem(REFERER);
+  }
+
+  static setReferer(referer) {
+    window.localStorage.setItem(REFERER, JSON.stringify(referer));
   }
 
   static getTokenExpirationDate() {

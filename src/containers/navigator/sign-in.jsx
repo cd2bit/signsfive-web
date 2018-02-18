@@ -14,7 +14,7 @@ export class SignIn extends Component {
     const { loginUser, logoutUser, isAuthenticated } = this.props;
 
     if (!isAuthenticated) {
-      loginUser();
+      loginUser(this.props.location.pathname);
     } else {
       logoutUser();
     }
