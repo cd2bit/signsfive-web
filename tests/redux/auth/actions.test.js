@@ -1,8 +1,5 @@
-import { spy, stub } from 'sinon';
-import { expect } from 'chai';
-
-import { authTypes, authActions } from '../';
-import AuthService from '../../../../utils/AuthService';
+import { authTypes, authActions } from '../../../src/redux/modules/auth';
+import AuthService from '../../../src/utils/AuthService';
 
 describe('(Actions) auth ', () => {
   it('should create an action for LOGIN_REQUEST', () => {

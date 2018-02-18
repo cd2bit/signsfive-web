@@ -1,6 +1,4 @@
-import { expect } from 'chai';
-
-import authReducer, { authTypes } from '../';
+import authReducer, { authTypes } from '../../../src/redux/modules/auth';
 
 describe('(Reducer) auth', () => {
   it('should return the initial state', () => {
