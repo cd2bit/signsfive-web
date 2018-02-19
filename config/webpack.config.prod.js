@@ -1,29 +1,28 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const paths = require('./paths');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const getClientEnvironment = require('./env');
+const paths = require('./paths');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
-// Some apps do not use client-side routing with pushState.
-// For these, "homepage" can be set to "." to enable relative asset paths.
-const shouldUseRelativeAssetPaths = publicPath === './';
-// Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
 const publicUrl = publicPath.slice(0, -1);
+
+// Source maps are resource heavy and can cause out of memory issue for large source files.
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
@@ -36,13 +35,17 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
 
+// Some apps do not use client-side routing with pushState.
+// For these, "homepage" can be set to "." to enable relative asset paths.
+const shouldUseRelativeAssetPaths = publicPath === './';
+
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
 // To have this structure working with relative paths, we have to use custom options.
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split('/').length).join('../') }
+  { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
 // This is the production configuration.
@@ -55,7 +58,9 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: [
+    require.resolve('./polyfills'),
+    paths.appIndexJs],
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -65,7 +70,7 @@ module.exports = {
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath,
+    publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
@@ -77,10 +82,11 @@ module.exports = {
     // We placed these paths second because we want `node_modules` to "win"
     // if there are any conflicts. This matches Node resolution mechanism.
     // https://github.com/facebookincubator/create-react-app/issues/253
-    modules: ['node_modules', paths.appNodeModules].concat(
+    modules: [
+      'node_modules',
+      paths.appNodeModules,
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
+    ].concat(process.env.NODE_PATH.split(path.delimiter).filter(Boolean)),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -89,7 +95,6 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -120,7 +125,6 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -148,7 +152,6 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
               compact: true,
             },
           },
@@ -166,31 +169,29 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: require.resolve('style-loader'),
-                  use: [
-                    {
-                      loader: require.resolve('css-loader'),
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: shouldUseSourceMap,
-                      },
+            loader: ExtractTextPlugin.extract(Object.assign(
+              {
+                fallback: require.resolve('style-loader'),
+                use: [
+                  {
+                    loader: require.resolve('css-loader'),
+                    options: {
+                      importLoaders: 1,
+                      // minimize: true, // This breaks bootstrap for some reason
+                      sourceMap: shouldUseSourceMap,
                     },
-                    {
-                      loader: 'postcss-loader',
-                      options: {
-                        config: { path: './config/postcss.config.js' },
-                        sourceMap: shouldUseSourceMap,
-                      },
+                  },
+                  {
+                    loader: require.resolve('postcss-loader'),
+                    options: {
+                      config: { path: './config/postcss.config.js' },
+                      sourceMap: shouldUseSourceMap,
                     },
-                  ],
-                },
-                extractTextPluginOptions
-              )
-            ),
+                  },
+                ],
+              },
+              extractTextPluginOptions,
+            )), // eslint-line
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
           {
@@ -199,7 +200,7 @@ module.exports = {
               fallback: 'style-loader',
               use: [
                 {
-                  loader: 'css-loader',
+                  loader: require.resolve('css-loader'),
                   options: {
                     modules: true,
                     sourceMap: shouldUseSourceMap,
@@ -208,11 +209,11 @@ module.exports = {
                   },
                 },
                 {
-                  loader: 'sass-loader',
+                  loader: require.resolve('sass-loader'),
                   options: { sourceMap: shouldUseSourceMap },
                 },
                 {
-                  loader: 'postcss-loader',
+                  loader: require.resolve('postcss-loader'),
                   options: {
                     config: { path: './config/postcss.config.js' },
                     sourceMap: shouldUseSourceMap,
@@ -282,26 +283,32 @@ module.exports = {
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        // Disabled because of an issue with Uglify breaking seemingly valid code:
-        // https://github.com/facebookincubator/create-react-app/issues/2376
-        // Pending further investigation:
-        // https://github.com/mishoo/UglifyJS2/issues/2011
-        comparisons: false,
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8,
+        compress: {
+          warnings: false,
+          // Disabled because of an issue with Uglify breaking seemingly valid code:
+          // https://github.com/facebookincubator/create-react-app/issues/2376
+          // Pending further investigation:
+          // https://github.com/mishoo/UglifyJS2/issues/2011
+          comparisons: false,
+        },
+        mangle: {
+          safari10: true,
+        },
+        output: {
+          comments: false,
+          // Turned on because emoji and regex is not minified properly using default
+          // https://github.com/facebookincubator/create-react-app/issues/2488
+          ascii_only: true,
+        },
       },
-      output: {
-        comments: false,
-        // Turned on because emoji and regex is not minified properly using default
-        // https://github.com/facebookincubator/create-react-app/issues/2488
-        ascii_only: true,
-      },
-      sourceMap: shouldUseSourceMap,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
-      filename: cssFilename, allChunks: true,
+      filename: cssFilename,
+      allChunks: true,
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
@@ -328,11 +335,11 @@ module.exports = {
           // https://github.com/facebookincubator/create-react-app/issues/2612
           return;
         }
-        console.log(message);
+        console.log(message); // eslint-disable-line no-console
       },
       minify: true,
       // For unknown URLs, fallback to the index page
-      navigateFallback: publicUrl + '/index.html',
+      navigateFallback: `${publicUrl}/index.html`,
       // Ignores URLs starting from /__ (useful for Firebase):
       // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
       navigateFallbackWhitelist: [/^(?!\/__).*/],
