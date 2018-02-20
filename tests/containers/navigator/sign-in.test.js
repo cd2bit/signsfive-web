@@ -97,7 +97,7 @@ describe('<SignIn />', () => {
         expect(containerWrapper.props().isAuthenticated).to.be.true;
       });
 
-      it('set props.isAuthenticated as true', () => {
+      it('set props.isAuthenticated as false', () => {
         store = mockStore({ authReducer: { isAuthenticated: false } });
         containerWrapper = shallow(<SignInContainer store={store} />);
         expect(containerWrapper.props().isAuthenticated).to.be.false;
