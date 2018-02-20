@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { Button } from 'reactstrap';
 import { authActions } from '../../redux/modules/auth';
 /**
  * This is SignIn
@@ -34,12 +34,12 @@ export class SignIn extends Component {
     }
 
     return (
-      <button type="button" className="btn btn-outline-light mr-2" onClick={this.signInOrOut}>
+      <Button outline className="btn-outline-light mr-2" onClick={this.signInOrOut}>
         <i className="fa fa-user-circle-o hidden-md-down" aria-hidden="true" />
         <span className="d-none d-sm-inline-block">
           {buttonLabel}
         </span>
-      </button>
+      </Button>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 /**
  * This is SubmitASign
  * @param {object} props
@@ -12,12 +13,12 @@ export const SubmitASign = ({ isAuthenticated }) => {
     return <span />;
   }
   return (
-    <button type="button" className="btn btn-primary">
+    <Button color="primary">
       <i className="fa fa-upload" aria-hidden="true" />
       <span className="d-none d-sm-inline-block">
         Submit a Sign
       </span>
-    </button>
+    </Button>
   );
 };
 
