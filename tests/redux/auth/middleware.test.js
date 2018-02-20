@@ -41,8 +41,8 @@ describe('(Middleware) auth ', () => {
         it('skip authMiddleware and does not dispatch anything', (done) => {
           actionHandler({});
           setTimeout(() => {
-            expect(nextSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
-            expect(dispatchSpy.called).to.be.false; // eslint-disable-line no-unused-expressions
+            expect(nextSpy.called).to.be.true;
+            expect(dispatchSpy.called).to.be.false;
             done();
           }, 200);
         });
@@ -74,8 +74,8 @@ describe('(Middleware) auth ', () => {
               actionHandler({ type: authTypes.LOGIN_STATUS });
 
               setTimeout(() => {
-                expect(nextSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
-                expect(dispatchSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
+                expect(nextSpy.called).to.be.true;
+                expect(dispatchSpy.called).to.be.true;
                 expect(dispatchSpy.args[0]).to.deep.equal([{
                   type: authTypes.NOT_LOGGED_IN,
                 }]);
@@ -91,8 +91,8 @@ describe('(Middleware) auth ', () => {
               actionHandler({ type: authTypes.LOGIN_STATUS });
 
               setTimeout(() => {
-                expect(nextSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
-                expect(dispatchSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
+                expect(nextSpy.called).to.be.true;
+                expect(dispatchSpy.called).to.be.true;
                 expect(dispatchSpy.args[0]).to.deep.equal([{
                   type: authTypes.IS_LOGGED_IN,
                 }]);
@@ -113,8 +113,8 @@ describe('(Middleware) auth ', () => {
             actionHandler({ type: authTypes.LOGIN_STATUS });
 
             setTimeout(() => {
-              expect(nextSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
-              expect(dispatchSpy.called).to.be.true; // eslint-disable-line no-unused-expressions
+              expect(nextSpy.called).to.be.true;
+              expect(dispatchSpy.called).to.be.true;
               expect(dispatchSpy.args[0]).to.deep.equal([{
                 type: authTypes.LOGIN_SUCCESS,
                 idToken: 'fakeId',

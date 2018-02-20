@@ -70,7 +70,7 @@ describe('(Actions) auth ', () => {
       expect(callbackSpy.args[0]).to.deep.equal([{
         type: authTypes.LOGIN_REQUEST,
       }]);
-      expect(loginStub.called).to.be.true; // eslint-disable-line no-unused-expressions
+      expect(loginStub.called).to.be.true;
       AuthService.login.restore();
     });
 
@@ -81,7 +81,7 @@ describe('(Actions) auth ', () => {
         expect(callbackSpy.args[0]).to.deep.equal([{
           type: authTypes.LOGOUT_REQUEST,
         }]);
-        expect(logoutStub.called).to.be.true; // eslint-disable-line no-unused-expressions
+        expect(logoutStub.called).to.be.true;
         expect(callbackSpy.args[1]).to.deep.equal([{
           type: authTypes.LOGOUT_SUCCESS,
           action: { isLoggingOut: true },

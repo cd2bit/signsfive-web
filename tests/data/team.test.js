@@ -1,6 +1,8 @@
 import schema from '../schema/team.json';
 import teamData from '../../src/data/team.json';
 
-it('validates the team.json', () => {
-  jestExpect(teamData).toMatchSchema(schema);
+describe('team.json', () => {
+  it('validates the schema', () => {
+    jestExpect(teamData).toMatchSchema(schema);
+  });
 });

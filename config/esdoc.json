@@ -1,0 +1,31 @@
+{
+  "source": "./src",
+  "destination": "./docs",
+  "includes": ["\\.(js|jsx)$"],
+  "plugins": [
+    {
+      "name": "esdoc-brand-plugin",
+      "option": {
+        "title": "SignsFive Web",
+        "description": "Search for STEM Signs Made Easy",
+        "repository": "https://github.com/deafchi/signsfive-web",
+        "site": "https://signsfive.com",
+        "author": "https://medium.com/signsfive"
+      }
+    },
+    {
+      "name": "esdoc-ecmascript-proposal-plugin",
+      "option": { "all": true }
+    },
+    {
+      "name": "esdoc-external-nodejs-plugin",
+      "option": { "enable": true }
+    },
+    {
+      "name": "esdoc-jsx-plugin",
+      "option": { "enable": true }
+    },
+    { "name": "esdoc-standard-plugin" },
+    { "name": "esdoc-react-plugin" }
+  ]
+}

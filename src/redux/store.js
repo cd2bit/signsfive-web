@@ -1,6 +1,14 @@
+/**
+ * @external {redux} https://redux.js.org
+ */
 import { compose, createStore, applyMiddleware } from 'redux';
-
+/**
+ * @external {redux-logger} https://github.com/evgenyrodionov/redux-logger
+ */
 import { createLogger } from 'redux-logger';
+/**
+ * @external {redux-thunk} https://github.com/gaearon/redux-thunk
+ */
 import thunkMiddleware from 'redux-thunk';
 
 import authMiddleware from './modules/auth/middleware';
