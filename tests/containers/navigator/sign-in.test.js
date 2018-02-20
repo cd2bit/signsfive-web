@@ -81,26 +81,26 @@ describe('<SignIn />', () => {
   });
 
   describe('Container', () => {
-    const mockStore = configureStore([thunk]);
-    let containerWrapper;
+    let mockStore;
     let store;
 
     beforeEach(() => {
+      mockStore = configureStore([thunk]);
       store = mockStore({
         authReducer: { isAuthenticated: true },
       });
-      containerWrapper = shallow(<SignInContainer store={store} />);
+      wrapper = shallow(<SignInContainer store={store} />);
     });
 
     describe('.mapStateToProps', () => {
       it('set props.isAuthenticated as true', () => {
-        expect(containerWrapper.props().isAuthenticated).to.be.true;
+        expect(wrapper.props().isAuthenticated).to.be.true;
       });
 
       it('set props.isAuthenticated as false', () => {
         store = mockStore({ authReducer: { isAuthenticated: false } });
-        containerWrapper = shallow(<SignInContainer store={store} />);
-        expect(containerWrapper.props().isAuthenticated).to.be.false;
+        wrapper = shallow(<SignInContainer store={store} />);
+        expect(wrapper.props().isAuthenticated).to.be.false;
       });
     });
 
@@ -109,7 +109,7 @@ describe('<SignIn />', () => {
 
       beforeEach(() => {
         stub(AuthService, 'login');
-        containerProps = containerWrapper.props();
+        containerProps = wrapper.props();
       });
 
       afterEach(() => {
