@@ -7,6 +7,10 @@ import React from 'react';
  */
 import ReactDOM from 'react-dom';
 /**
+ * @external {react-router-dom} https://reacttraining.com/react-router/
+ */
+import { BrowserRouter } from 'react-router-dom';
+/**
  * @external {react-redux} https://redux.js.org/docs/basics/UsageWithReact.html
  */
 import { Provider } from 'react-redux';
@@ -23,9 +27,11 @@ const store = configureStore();
 
 ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter basename="/">
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('root'),
 );
 
