@@ -2,6 +2,8 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
+import { Button } from 'reactstrap';
+
 import SignInContainer, { SignIn } from '../../../src/containers/navigator/sign-in';
 import { authTypes } from '../../../src/redux/modules/auth';
 import AuthService from '../../../src/utils/AuthService';
@@ -31,7 +33,7 @@ describe('<SignIn />', () => {
     });
 
     it('renders element', () => {
-      expect(wrapper.find('button')).to.have.lengthOf(1);
+      expect(wrapper.find(Button)).to.have.lengthOf(1);
     });
 
     describe('.componentWillMount', () => {
@@ -47,7 +49,7 @@ describe('<SignIn />', () => {
 
       describe('.signInOrOut', () => {
         it('logoutUser is called', () => {
-          wrapper.find('button').simulate('click');
+          wrapper.find(Button).simulate('click');
           expect(loginUserSpy.called).to.be.false;
           expect(logoutUserSpy.called).to.be.true;
         });
@@ -72,7 +74,7 @@ describe('<SignIn />', () => {
 
       describe('.signInOrOut', () => {
         it('loginUser is called', () => {
-          wrapper.find('button').simulate('click');
+          wrapper.find(Button).simulate('click');
           expect(loginUserSpy.called).to.be.true;
           expect(logoutUserSpy.called).to.be.false;
         });
