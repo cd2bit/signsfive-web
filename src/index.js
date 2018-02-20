@@ -6,10 +6,9 @@ import React from 'react';
  * @external {react-dom} https://reactjs.org/docs/react-dom.html
  */
 import ReactDOM from 'react-dom';
-/**
- * @external {react-router-dom} https://reacttraining.com/react-router/
- */
-import { BrowserRouter } from 'react-router-dom';
+
+
+import { ConnectedRouter } from 'react-router-redux';
 /**
  * @external {react-redux} https://redux.js.org/docs/basics/UsageWithReact.html
  */
@@ -19,7 +18,7 @@ import { Provider } from 'react-redux';
  */
 import 'bootstrap/dist/css/bootstrap.css';
 
-import configureStore from './redux/store';
+import { configureStore, history } from './redux/store';
 import App from './app';
 import registerServiceWorker from './utils/registerServiceWorker';
 
@@ -27,11 +26,11 @@ const store = configureStore();
 
 ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension
-  <BrowserRouter basename="/">
-    <Provider store={store}>
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root'),
 );
 

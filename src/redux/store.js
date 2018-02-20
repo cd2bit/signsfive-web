@@ -2,6 +2,9 @@
  * @external {redux} https://redux.js.org
  */
 import { compose, createStore, applyMiddleware } from 'redux';
+
+import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
 /**
  * @external {redux-logger} https://github.com/evgenyrodionov/redux-logger
  */
@@ -16,7 +19,10 @@ import rootReducer from './../redux/reducer';
 
 import { DEBUG } from '../constant';
 
+export const history = createHistory();
+
 const middlewares = [
+  routerMiddleware(history),
   thunkMiddleware,
   authMiddleware,
 ];
@@ -25,7 +31,7 @@ if (DEBUG) {
   middlewares.push(createLogger());
 }
 
-export default function configureStore(preloadedState) {
+export function configureStore(preloadedState) {
   return createStore(
     rootReducer,
     preloadedState,
@@ -34,6 +40,5 @@ export default function configureStore(preloadedState) {
       // Conditionally add the Redux DevTools extension enhancer if it is installed.
       window.devToolsExtension ? window.devToolsExtension() : f => f,
     ),
-
   );
 }
