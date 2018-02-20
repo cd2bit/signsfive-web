@@ -127,7 +127,21 @@ describe('(Middleware) auth ', () => {
         });
 
         describe('when handleAuthentication catches errors', () => {
-          xit('should handle catch errors here', () => {
+          it('should handle catch errors here', (done) => {
+            const consoleSpy = spy(console, 'log');
+            handleAuthenticationStub.rejects({ broke: true });
+
+            actionHandler({ type: authTypes.LOGIN_STATUS });
+
+            setTimeout(() => {
+              expect(nextSpy.called).to.be.true;
+              expect(dispatchSpy.called).to.be.false;
+              expect(dispatchSpy.args[0]).to.be.undefined;
+              expect(consoleSpy.called).to.be.true;
+              expect(consoleSpy.args[0]).to.deep.equal(['err', { broke: true }]);
+              console.log.restore(); // eslint-disable-line no-console
+              done();
+            }, 200);
           });
         });
       });

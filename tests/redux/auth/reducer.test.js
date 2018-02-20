@@ -25,6 +25,18 @@ describe('(Reducer) auth', () => {
     });
   });
 
+  it('should handle IS_LOGGED_IN', () => {
+    expect(authReducer(undefined, { type: authTypes.IS_LOGGED_IN })).to.deep.equal({
+      isAuthenticated: false,
+      isFetching: false,
+      isLoggingOut: false,
+      idToken: null,
+      accessToken: null,
+      profile: {},
+      error: null,
+    });
+  });
+
   it('should handle LOGIN_STATUS', () => {
     expect(authReducer(undefined, { type: authTypes.LOGIN_STATUS })).to.deep.equal({
       isAuthenticated: false,
