@@ -15,12 +15,16 @@ import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
 import authMiddleware from './modules/auth/middleware';
-import rootReducer from './../redux/reducer';
+import rootReducer from './reducers';
 
 import { DEBUG } from '../constant';
-
+/**
+ * @type {object} history
+ */
 export const history = createHistory();
-
+/**
+ * @type {array}
+ */
 const middlewares = [
   routerMiddleware(history),
   thunkMiddleware,
@@ -30,7 +34,10 @@ const middlewares = [
 if (DEBUG) {
   middlewares.push(createLogger());
 }
-
+/**
+ * @type {function} configureStore
+ * @param {object} preloadedState={}
+ */
 export function configureStore(preloadedState) {
   return createStore(
     rootReducer,

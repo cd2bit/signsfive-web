@@ -2,6 +2,7 @@
   "source": "./src",
   "destination": "./docs",
   "includes": ["\\.(js|jsx)$"],
+  "excludes": ["utils/registerServiceWorker.js"],
   "plugins": [
     {
       "name": "esdoc-brand-plugin",
@@ -25,6 +26,7 @@
       "name": "esdoc-jsx-plugin",
       "option": { "enable": true }
     },
+    { "name": "esdoc-node" },
     { "name": "esdoc-standard-plugin" },
     { "name": "esdoc-react-plugin" }
   ]
