@@ -1,3 +1,3 @@
-export const getDisplayName = (Component) => {
-  return Component.displayName || Component.name || 'UnknownComponent';
-};
+export const getDisplayName = Component => Component.displayName || Component.name || 'UnknownComponent';
+
+export default getDisplayName;

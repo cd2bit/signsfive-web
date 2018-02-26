@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getDisplayName } from '../utils/getDisplayName';
 import { a11yActions } from '../redux/modules/a11y';
@@ -8,7 +9,13 @@ const AccessibleHOC = (WrappedComponent) => {
   class ScreenReaderAccessibleComponent extends React.Component {
     constructor(props) {
       super(props);
-      this.displayName = getDisplayName(WrappedComponent).replace( /([A-Z])/g, " $1" );
+      this.displayName = getDisplayName(WrappedComponent)
+        // insert a space between lower & upper
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        // space before last upper in a sequence followed by lower
+        .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+        // uppercase the first character
+        .replace(/^./, str => str.toUpperCase());
     }
 
     /**
@@ -19,6 +26,16 @@ const AccessibleHOC = (WrappedComponent) => {
       this.props.setA11yNavigatedMessage(this.displayName);
     }
 
+    /**
+     * render lifecycle method.
+     * @access private
+     * @return {ReactElement} HTML
+    */
+    render() {
+      return (
+        <WrappedComponent {...this.props} />
+      );
+    }
   }
 
   ScreenReaderAccessibleComponent.propTypes = {
@@ -36,6 +53,6 @@ const AccessibleHOC = (WrappedComponent) => {
   });
 
   return connect(null, mapDispatchToProps)(ScreenReaderAccessibleComponent);
-}
+};
 
 export default AccessibleHOC;
