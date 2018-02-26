@@ -45,4 +45,4 @@ export const Main = () => (
   </div>
 );
 
-export default withAccessible()(Main);
+export default withAccessible(Main);

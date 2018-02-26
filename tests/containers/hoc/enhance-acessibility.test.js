@@ -15,7 +15,7 @@ describe('<AccessibleHOC />', () => {
     mockStore = configureStore([thunk]);
     store = mockStore({});
     MockComponent = () => <div className="mockComponent" />; // eslint-disable-line react/jsx-filename-extension
-    WrapperMockComponent = withAccessible()(MockComponent);
+    WrapperMockComponent = withAccessible(MockComponent);
     wrapper = mount(<WrapperMockComponent store={store} />);
   });
 

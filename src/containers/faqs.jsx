@@ -16,4 +16,4 @@ export const Faqs = () => (
   </div>
 );
 
-export default withAccessible()(Faqs);
+export default withAccessible(Faqs);

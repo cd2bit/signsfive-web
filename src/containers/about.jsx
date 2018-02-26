@@ -52,4 +52,4 @@ export const About = () => (
   </div>
 );
 
-export default withAccessible()(About);
+export default withAccessible(About);
