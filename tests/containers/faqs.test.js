@@ -22,13 +22,6 @@ describe('<Faqs />', () => {
     it('renders element', () => {
       expect(wrapper.find('h2').text()).to.have.string('FAQs');
     });
-
-    describe('.componentWillMount', () => {
-      it('setA11yNavigatedMessage is called', () => {
-        expect(setA11yNavigatedMessageSpy.called).to.be.true;
-        expect(setA11yNavigatedMessageSpy.args[0][0]).to.have.string('FAQs');
-      });
-    });
   });
 
   describe('Container', () => {

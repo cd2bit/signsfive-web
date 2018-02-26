@@ -46,6 +46,7 @@
     "lint:js": "eslint ./src ./tests ./config --ext js,jsx",
     "lint:sass": "sass-lint ./src/**/*.scss -v",
     "test:jest": "node scripts/test.js --env=jsdom --config=./config/.jestrc.json",
+    "jest": "node scripts/test.js --env=jsdom --config=./config/.jestrc.json --verbose=false",
     "test": "npm run lint && npm run test:jest",
     "test:ci": "npm run test && codecov",
     "deploy": "npm run build && gh-pages -d build",
