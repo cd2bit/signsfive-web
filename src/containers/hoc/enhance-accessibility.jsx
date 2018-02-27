@@ -5,13 +5,16 @@ import PropTypes from 'prop-types';
 import getDisplayName from '../../utils/getDisplayName';
 import { a11yActions } from '../../redux/modules/a11y';
 
-const withAccessible = (WrappedComponent) => {
-  class ScreenReaderAccessibleComponent extends React.Component {
+function makeAccessibleRouteComponent(WrappedComponent) {
+  return class ScreenReaderAccessibleComponent extends React.Component {
     static WrappedComponent = WrappedComponent;
+
+    static propTypes = {
+      setA11yNavigatedMessage: PropTypes.func.isRequired,
+    };
 
     constructor(props) {
       super(props);
-      console.log('>>>>>>>>>>>>>>>>>>>>=========props', props);
 
       this.displayName = getDisplayName(WrappedComponent)
         // insert a space between lower & upper
@@ -27,9 +30,6 @@ const withAccessible = (WrappedComponent) => {
      * @access private
      */
     componentDidMount() {
-      console.log('=========================');
-      console.log('=============componentDidMount: this.props', this.props);
-      console.log('=========================');
       this.props.setA11yNavigatedMessage(this.displayName);
     }
 
@@ -43,12 +43,11 @@ const withAccessible = (WrappedComponent) => {
         <WrappedComponent {...this.props} />
       );
     }
-  }
-
-  ScreenReaderAccessibleComponent.propTypes = {
-    setA11yNavigatedMessage: PropTypes.func.isRequired,
   };
+}
 
+const makeAccessibleRoute = (WrappedComponent) => {
+  const ScreenReaderAccessibleComponent = makeAccessibleRouteComponent(WrappedComponent);
   /**
    * Mapping dispatch to props
    * @function mapDispatchToProps
@@ -62,4 +61,5 @@ const withAccessible = (WrappedComponent) => {
   return connect(null, mapDispatchToProps)(ScreenReaderAccessibleComponent);
 };
 
-export default withAccessible;
+export const ScreenReaderAccessibleComponent = makeAccessibleRouteComponent;
+export default makeAccessibleRoute;

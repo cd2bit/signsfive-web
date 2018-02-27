@@ -3,48 +3,56 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
-import withAccessible from '../../../src/containers/hoc/enhance-accessibility';
+import makeAccessibleRoute, { ScreenReaderAccessibleComponent } from '../../../src/containers/hoc/enhance-accessibility';
 import { a11yTypes } from '../../../src/redux/modules/a11y';
 
 describe('<AccessibleHOC />', () => {
   let MockComponent;
   let WrapperMockComponent;
   let wrapper;
-  let mockStore;
-  let store;
-  let setA11yNavigatedMessageSpy;
-  let containerProps;
 
   beforeEach(() => {
-    setA11yNavigatedMessageSpy = spy();
-    mockStore = configureStore([thunk]);
-    store = mockStore();
     MockComponent = () => <div className="mockComponent" />; // eslint-disable-line react/jsx-filename-extension
-    WrapperMockComponent = withAccessible(MockComponent);
-    wrapper = mount(<Provider store={store} test={{ foo: true }}>
-      <WrapperMockComponent />
-    </Provider>); // eslint-disable-line react/jsx-closing-tag-location
   });
 
-  describe('Component', () => {
-    it('renders wrapped element', () => {
-      expect(wrapper.find(MockComponent)).to.have.lengthOf(1);
+  describe('ScreenReaderAccessibleComponent', () => {
+    let setA11yNavigatedMessageSpy;
+
+    beforeEach(() => {
+      setA11yNavigatedMessageSpy = spy();
+      WrapperMockComponent = ScreenReaderAccessibleComponent(MockComponent);
+      wrapper = mount(<WrapperMockComponent // eslint-disable-line react/jsx-closing-tag-location
+        setA11yNavigatedMessage={setA11yNavigatedMessageSpy}
+      />);
+    });
+
+    it('renders element', () => {
+      expect(wrapper.find('.mockComponent')).to.have.lengthOf(1);
     });
 
     describe('.componentWillMount', () => {
       it('setA11yNavigatedMessage is called', () => {
-        containerProps = wrapper.find(MockComponent).props();
-        containerProps.setA11yNavigatedMessage = setA11yNavigatedMessageSpy;
         expect(setA11yNavigatedMessageSpy.called).to.be.true;
-        expect(setA11yNavigatedMessageSpy.args[0][0]).to.have.string('FAQs');
+        expect(setA11yNavigatedMessageSpy.args[0][0]).to.have.string('Mock Component');
       });
     });
   });
 
-  describe('Container', () => {
-    describe('.mapDispatchToProps', () => {
-      
+  describe('makeAccessibleRoute { Container }', () => {
+    let mockStore;
+    let store;
+    let containerProps;
 
+    beforeEach(() => {
+      mockStore = configureStore([thunk]);
+      store = mockStore({});
+      WrapperMockComponent = makeAccessibleRoute(MockComponent);
+      wrapper = mount(<Provider store={store}>
+        <WrapperMockComponent />
+      </Provider>); // eslint-disable-line react/jsx-closing-tag-location
+    });
+
+    describe('.mapDispatchToProps', () => {
       beforeEach(() => {
         containerProps = wrapper.find(MockComponent).props();
       });
@@ -56,12 +64,5 @@ describe('<AccessibleHOC />', () => {
         });
       });
     });
-  });
-
-  // currently this is broken but i feel we are very close!
-  xit('renders the wrapped component as the root element in the connect HOC', () => {
-    console.log('wrapperwrapperwrapperwrapper', wrapper.WrappedComponent);
-    expect(wrapper.find(withAccessible)).to.equal(withAccessible);
-    expect(wrapper.first().first()).to.equal(MockComponent);
   });
 });
