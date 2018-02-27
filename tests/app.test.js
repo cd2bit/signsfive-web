@@ -4,9 +4,9 @@ import { Route } from 'react-router-dom';
 import App from '../src/app';
 import SearchBar from '../src/components/search-bar';
 
-import Main from '../src/components/main';
-import About from '../src/components/about';
-import Faqs from '../src/components/faqs';
+import { Main } from '../src/containers/main';
+import { About } from '../src/containers/about';
+import { Faqs } from '../src/containers/faqs';
 
 describe('<App />', () => {
   let wrapper;
@@ -32,23 +32,23 @@ describe('<App />', () => {
     });
 
     it('routes to Main', () => {
-      route = routes['/'];
+      route = routes['/'].WrappedComponent;
       expect(route).to.equal(Main);
-      expect(route).not.to.equal(About);
-      expect(route).not.to.equal(Faqs);
+      expect(route).to.not.equal(About);
+      expect(route).to.not.equal(Faqs);
     });
 
     it('routes to About', () => {
-      route = routes['/about'];
-      expect(route).not.to.equal(Main);
+      route = routes['/about'].WrappedComponent;
+      expect(route).to.not.equal(Main);
       expect(route).to.equal(About);
-      expect(route).not.to.equal(Faqs);
+      expect(route).to.not.equal(Faqs);
     });
 
     it('routes to Faqs', () => {
-      route = routes['/faqs'];
-      expect(route).not.to.equal(Main);
-      expect(route).not.to.equal(About);
+      route = routes['/faqs'].WrappedComponent;
+      expect(route).to.not.equal(Main);
+      expect(route).to.not.equal(About);
       expect(route).to.equal(Faqs);
     });
   });

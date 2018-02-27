@@ -7,9 +7,9 @@ import './styles/main.css';
 import Header from './components/header';
 import SearchBar from './components/search-bar';
 
-import Main from './components/main';
-import About from './components/about';
-import Faqs from './components/faqs';
+import MainContainer from './containers/main';
+import AboutContainer from './containers/about';
+import FaqsContainer from './containers/faqs';
 
 import Footer from './components/footer';
 
@@ -21,9 +21,9 @@ const App = () => (
     <Header />
     <SearchBar />
     <div className="body container">
-      <Route exact path="/" component={Main} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/faqs" component={Faqs} />
+      <Route exact path="/" component={MainContainer} />
+      <Route exact path="/about" component={AboutContainer} />
+      <Route exact path="/faqs" component={FaqsContainer} />
     </div>
     <Footer />
   </div>

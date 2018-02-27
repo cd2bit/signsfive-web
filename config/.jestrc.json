@@ -36,6 +36,5 @@
     "web.jsx",
     "jsx",
     "node"
-  ],
-  "verbose": true
+  ]
 }

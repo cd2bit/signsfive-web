@@ -10,6 +10,7 @@ import styles from '../styles/components/package-version.scss';
  */
 class PackageVersion extends Component {
   /**
+   * constructor
    * @reactProps {object} props
    */
   constructor(props) {
@@ -22,9 +23,10 @@ class PackageVersion extends Component {
     };
   }
   /**
-   * Renders the component
-   * @return {ReactComponent}
-   */
+   * render lifecycle method.
+   * @access private
+   * @return {ReactElement} HTML
+  */
   render() {
     return (
       <sup>

@@ -8,7 +8,8 @@
 /node_modules
 
 # documentation
-/docs
+/docs/*
+!/docs/badge.svg
 
 # testing
 /coverage
