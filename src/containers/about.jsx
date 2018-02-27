@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AccessibleHOC from '../components/EnhanceAccessibility';
+import withAccessible from './hoc/enhance-accessibility';
 
 import OurStory from '../components/about/our-story';
 import OurName from '../components/about/our-name';
@@ -52,4 +52,4 @@ export const About = () => (
   </div>
 );
 
-export default AccessibleHOC(About);
+export default withAccessible(About);

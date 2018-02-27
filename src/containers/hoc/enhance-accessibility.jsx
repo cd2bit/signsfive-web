@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getDisplayName } from '../utils/getDisplayName';
-import { a11yActions } from '../redux/modules/a11y';
+import getDisplayName from '../../utils/getDisplayName';
+import { a11yActions } from '../../redux/modules/a11y';
 
-const AccessibleHOC = (WrappedComponent) => {
+const makeAccessibleRouteComponent = (WrappedComponent) => {
   class ScreenReaderAccessibleComponent extends React.Component {
+    static WrappedComponent = WrappedComponent;
+
     constructor(props) {
       super(props);
+
       this.displayName = getDisplayName(WrappedComponent)
         // insert a space between lower & upper
         .replace(/([a-z])([A-Z])/g, '$1 $2')
@@ -42,6 +45,11 @@ const AccessibleHOC = (WrappedComponent) => {
     setA11yNavigatedMessage: PropTypes.func.isRequired,
   };
 
+  return ScreenReaderAccessibleComponent;
+};
+
+const makeAccessibleRoute = (WrappedComponent) => {
+  const ScreenReaderAccessibleComponent = makeAccessibleRouteComponent(WrappedComponent);
   /**
    * Mapping dispatch to props
    * @function mapDispatchToProps
@@ -55,4 +63,5 @@ const AccessibleHOC = (WrappedComponent) => {
   return connect(null, mapDispatchToProps)(ScreenReaderAccessibleComponent);
 };
 
-export default AccessibleHOC;
+export const ScreenReaderAccessibleComponent = makeAccessibleRouteComponent;
+export default makeAccessibleRoute;

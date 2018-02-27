@@ -20,6 +20,7 @@ describe('<App />', () => {
   });
 
   describe('renders correct routes', () => {
+    let route;
     let routes;
 
     beforeEach(() => {
@@ -31,15 +32,24 @@ describe('<App />', () => {
     });
 
     it('routes to Main', () => {
-      expect(routes['/'].WrappedComponent).to.equal(Main);
+      route = routes['/'].WrappedComponent;
+      expect(route).to.equal(Main);
+      expect(route).to.not.equal(About);
+      expect(route).to.not.equal(Faqs);
     });
 
     it('routes to About', () => {
-      expect(routes['/about'].WrappedComponent).to.equal(About);
+      route = routes['/about'].WrappedComponent;
+      expect(route).to.not.equal(Main);
+      expect(route).to.equal(About);
+      expect(route).to.not.equal(Faqs);
     });
 
     it('routes to Faqs', () => {
-      expect(routes['/faqs'].WrappedComponent).to.equal(Faqs);
+      route = routes['/faqs'].WrappedComponent;
+      expect(route).to.not.equal(Main);
+      expect(route).to.not.equal(About);
+      expect(route).to.equal(Faqs);
     });
   });
 });

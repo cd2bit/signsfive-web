@@ -9,25 +9,12 @@ describe('<Faqs />', () => {
   let wrapper;
 
   describe('Component', () => {
-    let setA11yNavigatedMessageSpy;
-
     beforeEach(() => {
-      setA11yNavigatedMessageSpy = spy();
-
-      wrapper = shallow(<Faqs // eslint-disable-line react/jsx-filename-extension
-        setA11yNavigatedMessage={setA11yNavigatedMessageSpy}
-      />);
+      wrapper = shallow(<Faqs />); // eslint-disable-line react/jsx-filename-extension
     });
 
     it('renders element', () => {
       expect(wrapper.find('h2').text()).to.have.string('FAQs');
-    });
-
-    describe('.componentWillMount', () => {
-      it('setA11yNavigatedMessage is called', () => {
-        expect(setA11yNavigatedMessageSpy.called).to.be.true;
-        expect(setA11yNavigatedMessageSpy.args[0][0]).to.have.string('FAQs');
-      });
     });
   });
 
