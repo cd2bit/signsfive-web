@@ -6,7 +6,7 @@ describe('<SearchBar />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<SearchBar />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<SearchBar />);
   });
 
   it('renders elements', () => {

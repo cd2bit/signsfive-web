@@ -6,7 +6,7 @@ describe('<FooterChicagoBanner/>', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<FooterChicagoBanner />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<FooterChicagoBanner />);
   });
 
   it('renders element', () => {

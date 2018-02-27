@@ -6,7 +6,7 @@ describe('<PackageVersion />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<PackageVersion />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<PackageVersion />);
   });
 
   it('renders elements', () => {

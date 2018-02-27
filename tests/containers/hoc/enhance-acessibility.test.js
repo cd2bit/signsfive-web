@@ -12,7 +12,7 @@ describe('<AccessibleHOC />', () => {
   let wrapper;
 
   beforeEach(() => {
-    MockComponent = () => <div className="mockComponent" />; // eslint-disable-line react/jsx-filename-extension
+    MockComponent = () => <div className="mockComponent" />;
   });
 
   describe('ScreenReaderAccessibleComponent', () => {
