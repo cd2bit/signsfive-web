@@ -11,6 +11,7 @@ const withAccessible = (WrappedComponent) => {
 
     constructor(props) {
       super(props);
+      console.log('>>>>>>>>>>>>>>>>>>>>=========props', props);
 
       this.displayName = getDisplayName(WrappedComponent)
         // insert a space between lower & upper
@@ -26,6 +27,9 @@ const withAccessible = (WrappedComponent) => {
      * @access private
      */
     componentDidMount() {
+      console.log('=========================');
+      console.log('=============componentDidMount: this.props', this.props);
+      console.log('=========================');
       this.props.setA11yNavigatedMessage(this.displayName);
     }
 

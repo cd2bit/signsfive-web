@@ -9,14 +9,8 @@ describe('<Main />', () => {
   let wrapper;
 
   describe('Component', () => {
-    let setA11yNavigatedMessageSpy;
-
     beforeEach(() => {
-      setA11yNavigatedMessageSpy = spy();
-
-      wrapper = shallow(<Main // eslint-disable-line react/jsx-filename-extension
-        setA11yNavigatedMessage={setA11yNavigatedMessageSpy}
-      />);
+      wrapper = shallow(<Main />); // eslint-disable-line react/jsx-filename-extension
     });
 
     it('renders element', () => {
