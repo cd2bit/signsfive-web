@@ -10,7 +10,7 @@ describe('<Faqs />', () => {
 
   describe('Component', () => {
     beforeEach(() => {
-      wrapper = shallow(<Faqs />); // eslint-disable-line react/jsx-filename-extension
+      wrapper = shallow(<Faqs />);
     });
 
     it('renders element', () => {

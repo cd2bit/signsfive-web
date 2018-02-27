@@ -13,7 +13,7 @@ describe('<A11yMessage />', () => {
     beforeEach(() => {
       messageStr = 'Cats';
 
-      wrapper = shallow(<A11yNavigatedMessage // eslint-disable-line react/jsx-filename-extension
+      wrapper = shallow(<A11yNavigatedMessage
         message={messageStr}
       />);
     });

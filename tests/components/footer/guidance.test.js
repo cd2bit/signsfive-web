@@ -6,7 +6,7 @@ describe('<FooterGuidance />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<FooterGuidance />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<FooterGuidance />);
   });
 
   it('renders element', () => {

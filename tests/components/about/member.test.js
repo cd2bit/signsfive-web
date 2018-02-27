@@ -9,7 +9,7 @@ describe('<Member />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Member // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<Member
       data={{
         firstName: 'Foo',
         lastName: 'Bar',

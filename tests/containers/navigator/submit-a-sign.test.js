@@ -15,7 +15,7 @@ describe('<SubmitASign />', () => {
     beforeEach(() => {
       isAuthenticatedBool = true;
 
-      wrapper = shallow(<SubmitASign // eslint-disable-line react/jsx-filename-extension
+      wrapper = shallow(<SubmitASign
         isAuthenticated={isAuthenticatedBool}
       />);
     });
@@ -34,7 +34,7 @@ describe('<SubmitASign />', () => {
     describe('when isAuthenticated is false', () => {
       it('renders element without button', () => {
         isAuthenticatedBool = false;
-        wrapper = shallow(<SubmitASign // eslint-disable-line react/jsx-filename-extension
+        wrapper = shallow(<SubmitASign
           isAuthenticated={isAuthenticatedBool}
         />);
 

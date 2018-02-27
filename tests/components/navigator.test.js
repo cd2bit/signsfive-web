@@ -11,7 +11,7 @@ describe('<Navigator />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Navigator />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<Navigator />);
   });
 
   it('renders elements', () => {

@@ -12,7 +12,7 @@ describe('<App />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<App />);
   });
 
   it('renders <SearchBar />', () => {

@@ -24,7 +24,7 @@ describe('<Team />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Team />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<Team />);
   });
 
   it('renders element', () => {

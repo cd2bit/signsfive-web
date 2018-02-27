@@ -24,7 +24,7 @@ describe('<SignIn />', () => {
       loginUserSpy = spy();
       logoutUserSpy = spy();
 
-      wrapper = shallow(<SignIn // eslint-disable-line react/jsx-filename-extension
+      wrapper = shallow(<SignIn
         isAuthenticated={isAuthenticatedBool}
         loginStatus={loginStatusSpy}
         loginUser={loginUserSpy}
@@ -60,7 +60,7 @@ describe('<SignIn />', () => {
       beforeEach(() => {
         isAuthenticatedBool = false;
 
-        wrapper = shallow(<SignIn // eslint-disable-line react/jsx-filename-extension
+        wrapper = shallow(<SignIn
           isAuthenticated={isAuthenticatedBool}
           loginStatus={loginStatusSpy}
           loginUser={loginUserSpy}

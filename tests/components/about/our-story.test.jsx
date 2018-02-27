@@ -6,7 +6,7 @@ describe('<OurStory />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<OurStory />); // eslint-disable-line react/jsx-filename-extension
+    wrapper = shallow(<OurStory />);
   });
 
   it('renders elements', () => {
