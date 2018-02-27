@@ -5,13 +5,9 @@ import PropTypes from 'prop-types';
 import getDisplayName from '../../utils/getDisplayName';
 import { a11yActions } from '../../redux/modules/a11y';
 
-function makeAccessibleRouteComponent(WrappedComponent) {
-  return class ScreenReaderAccessibleComponent extends React.Component {
+const makeAccessibleRouteComponent = (WrappedComponent) => {
+  class ScreenReaderAccessibleComponent extends React.Component {
     static WrappedComponent = WrappedComponent;
-
-    static propTypes = {
-      setA11yNavigatedMessage: PropTypes.func.isRequired,
-    };
 
     constructor(props) {
       super(props);
@@ -43,8 +39,14 @@ function makeAccessibleRouteComponent(WrappedComponent) {
         <WrappedComponent {...this.props} />
       );
     }
+  }
+
+  ScreenReaderAccessibleComponent.propTypes = {
+    setA11yNavigatedMessage: PropTypes.func.isRequired,
   };
-}
+
+  return ScreenReaderAccessibleComponent;
+};
 
 const makeAccessibleRoute = (WrappedComponent) => {
   const ScreenReaderAccessibleComponent = makeAccessibleRouteComponent(WrappedComponent);
