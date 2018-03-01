@@ -88,30 +88,34 @@ describe('<SignIn />', () => {
 
     beforeEach(() => {
       mockStore = configureStore([thunk]);
-      store = mockStore({
-        authReducer: { isAuthenticated: true },
-      });
+      store = mockStore({ authReducer: { isAuthenticated: true } });
       wrapper = shallow(<SignInContainer store={store} />);
     });
 
     describe('.mapStateToProps', () => {
-      it('set props.isAuthenticated as true', () => {
-        expect(wrapper.props().isAuthenticated).to.be.true;
+      describe('when authReducer.isAuthenticated is true', () => {
+        it('set props.isAuthenticated as true', () => {
+          const { isAuthenticated } = wrapper.props();
+          expect(isAuthenticated).to.be.true;
+        });
       });
 
-      it('set props.isAuthenticated as false', () => {
-        store = mockStore({ authReducer: { isAuthenticated: false } });
-        wrapper = shallow(<SignInContainer store={store} />);
-        expect(wrapper.props().isAuthenticated).to.be.false;
+      describe('when authReducer.isAuthenticated is false', () => {
+        beforeEach(() => {
+          store = mockStore({ authReducer: { isAuthenticated: false } });
+          wrapper = shallow(<SignInContainer store={store} />);
+        });
+
+        it('set props.isAuthenticated as false', () => {
+          const { isAuthenticated } = wrapper.props();
+          expect(isAuthenticated).to.be.false;
+        });
       });
     });
 
     describe('.mapDispatchToProps', () => {
-      let containerProps;
-
       beforeEach(() => {
         stub(AuthService, 'login');
-        containerProps = wrapper.props();
       });
 
       afterEach(() => {
@@ -119,19 +123,22 @@ describe('<SignIn />', () => {
       });
 
       it('dispatches loginStatus', () => {
-        expect(containerProps.loginStatus()).deep.equal({
+        const { loginStatus } = wrapper.props();
+        expect(loginStatus()).deep.equal({
           type: authTypes.LOGIN_STATUS,
         });
       });
 
       it('dispatches loginUser', () => {
-        expect(containerProps.loginUser()).deep.equal({
+        const { loginUser } = wrapper.props();
+        expect(loginUser()).deep.equal({
           type: authTypes.LOGIN_REQUEST,
         });
       });
 
       it('dispatches logoutUser', (done) => {
-        containerProps.logoutUser().then((response) => {
+        const { logoutUser } = wrapper.props();
+        logoutUser().then((response) => {
           setTimeout(() => {
             expect(response).deep.equal({
               type: authTypes.LOGOUT_SUCCESS,

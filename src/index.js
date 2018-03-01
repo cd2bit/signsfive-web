@@ -22,7 +22,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { configureStore, history } from './redux/store';
 import App from './app';
 import A11yNavigatedMessageContainer from './containers/a11y-navigated-message';
-import registerServiceWorker from './utils/registerServiceWorker';
+import registerServiceWorker from './lib/registerServiceWorker';
 /**
  * @type {object} store
 */

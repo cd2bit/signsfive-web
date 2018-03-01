@@ -1,10 +1,10 @@
 {
   "rootDir": "../",
   "collectCoverageFrom": [
-    "src/app.{js,jsx}",
-    "src/{containers,components,layouts}/**/*.{js,jsx}",
-    "src/redux/**/*.{js,jsx}",
-    "!src/redux/*.{js,jsx}"
+    "src/**/*.{js,jsx}",
+    "!src/index.js",
+    "!src/redux/*",
+    "!src/lib/*"
   ],
   "coverageDirectory": "./coverage/",
   "collectCoverage": true,
@@ -27,7 +27,8 @@
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
   ],
   "moduleNameMapper": {
-    "^react-native$": "react-native-web"
+    "^react-native$": "react-native-web",
+    "jwt-decode": "<rootDir>/mocks/jwt-decode.js"
   },
   "moduleFileExtensions": [
     "web.js",

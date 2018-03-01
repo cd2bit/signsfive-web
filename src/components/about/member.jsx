@@ -6,7 +6,7 @@ export default class Member extends Component {
     super(props);
 
     // eslint-disable-next-line global-require
-    this.pathToMemberImage = require('../../lib/teamLoader').default;
+    this.pathToMemberImage = require('../../lib/team-loader').default;
   }
 
   render() {

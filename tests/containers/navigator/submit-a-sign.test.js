@@ -12,15 +12,14 @@ describe('<SubmitASign />', () => {
   describe('Component', () => {
     let isAuthenticatedBool;
 
-    beforeEach(() => {
-      isAuthenticatedBool = true;
-
-      wrapper = shallow(<SubmitASign
-        isAuthenticated={isAuthenticatedBool}
-      />);
-    });
-
     describe('when isAuthenticated is true', () => {
+      beforeEach(() => {
+        isAuthenticatedBool = true;
+        wrapper = shallow(<SubmitASign
+          isAuthenticated={isAuthenticatedBool}
+        />);
+      });
+
       it('renders element with button', () => {
         expect(wrapper.find(Button)).to.have.lengthOf(1);
         expect(wrapper.find('span')).to.have.lengthOf(1);
@@ -32,12 +31,14 @@ describe('<SubmitASign />', () => {
     });
 
     describe('when isAuthenticated is false', () => {
-      it('renders element without button', () => {
+      beforeEach(() => {
         isAuthenticatedBool = false;
         wrapper = shallow(<SubmitASign
           isAuthenticated={isAuthenticatedBool}
         />);
+      });
 
+      it('renders element without button', () => {
         expect(wrapper.find(Button)).to.have.lengthOf(0);
         expect(wrapper.find('span')).to.have.lengthOf(1);
       });
@@ -53,16 +54,28 @@ describe('<SubmitASign />', () => {
     });
 
     describe('.mapStateToProps', () => {
-      it('set props.isAuthenticated as true', () => {
-        store = mockStore({ authReducer: { isAuthenticated: true } });
-        wrapper = shallow(<SubmitASignContainer store={store} />);
-        expect(wrapper.props().isAuthenticated).to.be.true;
+      describe('when authReducer.isAuthenticated is true', () => {
+        beforeEach(() => {
+          store = mockStore({ authReducer: { isAuthenticated: true } });
+          wrapper = shallow(<SubmitASignContainer store={store} />);
+        });
+
+        it('set props.isAuthenticated as true', () => {
+          const { isAuthenticated } = wrapper.props();
+          expect(isAuthenticated).to.be.true;
+        });
       });
 
-      it('set props.isAuthenticated as false', () => {
-        store = mockStore({ authReducer: { isAuthenticated: false } });
-        wrapper = shallow(<SubmitASignContainer store={store} />);
-        expect(wrapper.props().isAuthenticated).to.be.false;
+      describe('when authReducer.isAuthenticated is false', () => {
+        beforeEach(() => {
+          store = mockStore({ authReducer: { isAuthenticated: false } });
+          wrapper = shallow(<SubmitASignContainer store={store} />);
+        });
+
+        it('set props.isAuthenticated as false', () => {
+          const { isAuthenticated } = wrapper.props();
+          expect(isAuthenticated).to.be.false;
+        });
       });
     });
   });

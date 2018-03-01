@@ -20,8 +20,7 @@ describe('<A11yMessage />', () => {
 
     describe('when message has string', () => {
       it('renders element with screen-read', () => {
-        const spanWrapper = wrapper.find('.sr-only');
-        expect(spanWrapper).to.have.lengthOf(1);
+        expect(wrapper.find('.sr-only')).to.have.lengthOf(1);
       });
     });
 
@@ -113,16 +112,28 @@ describe('<A11yMessage />', () => {
     });
 
     describe('.mapStateToProps', () => {
-      it('set props.message to have string', () => {
-        store = mockStore({ a11yReducer: { message: 'has_string' } });
-        wrapper = shallow(<A11yNavigatedMessageContainer store={store} />);
-        expect(wrapper.props().message).to.have.string('has_string');
+      describe('when a11yReducer.message has string', () => {
+        beforeEach(() => {
+          store = mockStore({ a11yReducer: { message: 'has_string' } });
+          wrapper = shallow(<A11yNavigatedMessageContainer store={store} />);
+        });
+
+        it('set props.message to have string', () => {
+          const { message } = wrapper.props();
+          expect(message).to.have.string('has_string');
+        });
       });
 
-      it('set props.isAuthenticated to have empty string', () => {
-        store = mockStore({ a11yReducer: { message: null } });
-        wrapper = shallow(<A11yNavigatedMessageContainer store={store} />);
-        expect(wrapper.props().message).to.be.null;
+      describe('when a11yReducer.message is null', () => {
+        beforeEach(() => {
+          store = mockStore({ a11yReducer: { message: null } });
+          wrapper = shallow(<A11yNavigatedMessageContainer store={store} />);
+        });
+
+        it('set props.message to be null', () => {
+          const { message } = wrapper.props();
+          expect(message).to.be.null;
+        });
       });
     });
   });

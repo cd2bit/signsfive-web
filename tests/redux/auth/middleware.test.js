@@ -21,7 +21,6 @@ describe('(Middleware) auth ', () => {
   describe('handle next', () => {
     it('must return a function to handle action', () => {
       actionHandler = nextHandler();
-
       assert.isFunction(actionHandler);
       assert.strictEqual(actionHandler.length, 1);
     });
@@ -68,11 +67,12 @@ describe('(Middleware) auth ', () => {
           });
 
           describe('when isAuthenticated returns false', () => {
-            it('dispatches NOT_LOGGED_IN', (done) => {
+            beforeEach(() => {
               isAuthenticatedStub.returns(false);
+            });
 
+            it('dispatches NOT_LOGGED_IN', (done) => {
               actionHandler({ type: authTypes.LOGIN_STATUS });
-
               setTimeout(() => {
                 expect(nextSpy.called).to.be.true;
                 expect(dispatchSpy.called).to.be.true;
@@ -85,11 +85,12 @@ describe('(Middleware) auth ', () => {
           });
 
           describe('when isAuthenticated returns true', () => {
-            it('dispatches IS_LOGGED_IN', (done) => {
+            beforeEach(() => {
               isAuthenticatedStub.returns(true);
+            });
 
+            it('dispatches IS_LOGGED_IN', (done) => {
               actionHandler({ type: authTypes.LOGIN_STATUS });
-
               setTimeout(() => {
                 expect(nextSpy.called).to.be.true;
                 expect(dispatchSpy.called).to.be.true;
@@ -103,15 +104,16 @@ describe('(Middleware) auth ', () => {
         });
 
         describe('when handleAuthentication returns other than false', () => {
-          it('dispatches LOGIN_SUCCESS with tokens and profile', (done) => {
+          beforeEach(() => {
             handleAuthenticationStub.resolves({
               idToken: 'fakeId',
               accessToken: 'fakeAccess',
               profile: 'fakeProfile',
             });
+          });
 
+          it('dispatches LOGIN_SUCCESS with tokens and profile', (done) => {
             actionHandler({ type: authTypes.LOGIN_STATUS });
-
             setTimeout(() => {
               expect(nextSpy.called).to.be.true;
               expect(dispatchSpy.called).to.be.true;
@@ -127,19 +129,25 @@ describe('(Middleware) auth ', () => {
         });
 
         describe('when handleAuthentication catches errors', () => {
-          it('should handle catch errors here', (done) => {
-            const consoleSpy = spy(console, 'log');
+          let consoleSpy;
+
+          beforeEach(() => {
+            consoleSpy = spy(console, 'log');
             handleAuthenticationStub.rejects({ broke: true });
+          });
 
+          afterEach(() => {
+            console.log.restore(); // eslint-disable-line no-console
+          });
+
+          it('handles catch errors here', (done) => {
             actionHandler({ type: authTypes.LOGIN_STATUS });
-
             setTimeout(() => {
               expect(nextSpy.called).to.be.true;
               expect(dispatchSpy.called).to.be.false;
               expect(dispatchSpy.args[0]).to.be.undefined;
               expect(consoleSpy.called).to.be.true;
               expect(consoleSpy.args[0]).to.deep.equal(['err', { broke: true }]);
-              console.log.restore(); // eslint-disable-line no-console
               done();
             }, 200);
           });
