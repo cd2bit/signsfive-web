@@ -29,14 +29,10 @@ describe('<Main />', () => {
     });
 
     describe('.mapDispatchToProps', () => {
-      let containerProps;
-
-      beforeEach(() => {
-        containerProps = wrapper.props();
-      });
-
       it('dispatches setA11yNavigatedMessage', () => {
-        expect(containerProps.setA11yNavigatedMessage('FooBar Main')).deep.equal({
+        const { setA11yNavigatedMessage } = wrapper.props();
+        const action = setA11yNavigatedMessage('FooBar Main');
+        expect(action).deep.equal({
           type: a11yTypes.SET_A11Y_NAVIGATED_MESSAGE,
           message: 'FooBar Main',
         });

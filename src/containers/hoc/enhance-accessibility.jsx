@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import getDisplayName from '../../utils/getDisplayName';
+import getDisplayName from '../../utils/get-display-name';
 import { a11yActions } from '../../redux/modules/a11y';
 
 const makeAccessibleRouteComponent = (WrappedComponent) => {

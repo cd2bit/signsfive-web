@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 import PackageVersion from './package-version';
 import SignInContainer from '../containers/navigator/sign-in';

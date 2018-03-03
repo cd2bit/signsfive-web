@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Navigator from '../../src/components/navigator';
 
@@ -29,10 +28,5 @@ describe('<Navigator />', () => {
 
   it('renders <SubmitASignContainer />', () => {
     expect(wrapper.find(SubmitASignContainer)).to.have.lengthOf(1);
-  });
-
-  // This will be next step once we implement the Links instead of a href
-  xit('renders Links', () => {
-    expect(wrapper.find(Link)).to.have.lengthOf(2);
   });
 });

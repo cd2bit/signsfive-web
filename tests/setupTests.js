@@ -5,7 +5,7 @@ import { matchers } from 'jest-json-schema';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import { spy, stub } from 'sinon';
+import { spy, stub, useFakeTimers } from 'sinon';
 
 // we specify export as "chaiExpect", so we do not accidently override jest expect
 import { assert, expect as chaiExpect } from 'chai';
@@ -21,6 +21,7 @@ global.render = render;
 // Make Sinon functions available in all test files without importing
 global.spy = spy;
 global.stub = stub;
+global.useFakeTimers = useFakeTimers;
 
 // Make jest expect available in all test files
 global.jestExpect = expect;

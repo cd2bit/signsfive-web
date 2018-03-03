@@ -2,24 +2,29 @@ import { authTypes, authActions } from '../../../src/redux/modules/auth';
 import AuthService from '../../../src/utils/AuthService';
 
 describe('(Actions) auth ', () => {
-  it('should create an action for LOGIN_REQUEST', () => {
-    expect(authActions.loginStatus()).to.deep.equal({
+  let action;
+
+  it('creates an action for LOGIN_REQUEST', () => {
+    action = authActions.loginStatus();
+    expect(action).to.deep.equal({
       type: authTypes.LOGIN_STATUS,
     });
   });
 
-  it('should create an action for LOGIN_REQUEST', () => {
-    expect(authActions.loginRequest()).to.deep.equal({
+  it('creates an action for LOGIN_REQUEST', () => {
+    action = authActions.loginRequest();
+    expect(action).to.deep.equal({
       type: authTypes.LOGIN_REQUEST,
     });
   });
 
-  it('should create an action for LOGIN_SUCCESS', () => {
-    expect(authActions.loginSuccess({
+  it('creates an action for LOGIN_SUCCESS', () => {
+    action = authActions.loginSuccess({
       idToken: 'foo',
       accessToken: 'bar',
       profile: { fakeProperty: 'fakeValue' },
-    })).to.deep.equal({
+    });
+    expect(action).to.deep.equal({
       type: authTypes.LOGIN_SUCCESS,
       idToken: 'foo',
       accessToken: 'bar',
@@ -27,27 +32,31 @@ describe('(Actions) auth ', () => {
     });
   });
 
-  it('should create an action for IS_LOGGED_IN', () => {
-    expect(authActions.notLoggedIn()).to.deep.equal({
+  it('creates an action for IS_LOGGED_IN', () => {
+    action = authActions.notLoggedIn();
+    expect(action).to.deep.equal({
       type: authTypes.NOT_LOGGED_IN,
     });
   });
 
-  it('should create an action for LOGIN_ERROR', () => {
-    expect(authActions.loginError('fakeError')).to.deep.equal({
+  it('creates an action for LOGIN_ERROR', () => {
+    action = authActions.loginError('fakeError');
+    expect(action).to.deep.equal({
       type: authTypes.LOGIN_ERROR,
       error: 'fakeError',
     });
   });
 
-  it('should create an action for LOGOUT_REQUEST', () => {
-    expect(authActions.logoutRequest()).to.deep.equal({
+  it('creates an action for LOGOUT_REQUEST', () => {
+    action = authActions.logoutRequest();
+    expect(action).to.deep.equal({
       type: authTypes.LOGOUT_REQUEST,
     });
   });
 
-  it('should create an action for LOGOUT_SUCCESS', () => {
-    expect(authActions.logoutSuccess({ isLoggedOut: true })).to.deep.equal({
+  it('creates an action for LOGOUT_SUCCESS', () => {
+    action = authActions.logoutSuccess({ isLoggedOut: true });
+    expect(action).to.deep.equal({
       type: authTypes.LOGOUT_SUCCESS,
       action: { isLoggingOut: false },
     });
@@ -64,29 +73,48 @@ describe('(Actions) auth ', () => {
       callbackSpy = null;
     });
 
-    it('should return an action creator for LOGIN_REQUEST and AuthService.login', () => {
-      const loginStub = stub(AuthService, 'login');
-      authActions.loginUser()(callbackSpy);
-      expect(callbackSpy.args[0]).to.deep.equal([{
-        type: authTypes.LOGIN_REQUEST,
-      }]);
-      expect(loginStub.called).to.be.true;
-      AuthService.login.restore();
+    describe('LOGIN_REQUEST and AuthService.login', () => {
+      let loginStub;
+
+      beforeEach(() => {
+        loginStub = stub(AuthService, 'login');
+      });
+
+      afterEach(() => {
+        AuthService.login.restore();
+      });
+
+      it('returns an action creator', () => {
+        authActions.loginUser()(callbackSpy);
+        expect(callbackSpy.args[0]).to.deep.equal([{
+          type: authTypes.LOGIN_REQUEST,
+        }]);
+        expect(loginStub.called).to.be.true;
+      });
     });
 
-    it('should return an action creator for LOGOUT_REQUEST and LOGOUT_SUCCESS with AuthService.logout', () => {
-      const logoutStub = stub(AuthService, 'logout').resolves(false);
+    describe('LOGOUT_REQUEST and LOGOUT_SUCCESS with AuthService.logout', () => {
+      let logoutStub;
 
-      return authActions.logoutUser()(callbackSpy).then(() => {
-        expect(callbackSpy.args[0]).to.deep.equal([{
-          type: authTypes.LOGOUT_REQUEST,
-        }]);
-        expect(logoutStub.called).to.be.true;
-        expect(callbackSpy.args[1]).to.deep.equal([{
-          type: authTypes.LOGOUT_SUCCESS,
-          action: { isLoggingOut: true },
-        }]);
+      beforeEach(() => {
+        logoutStub = stub(AuthService, 'logout').resolves(false);
+      });
+
+      afterEach(() => {
         AuthService.logout.restore();
+      });
+
+      it('returns an action creator', () => { // eslint-disable-line arrow-body-style
+        return authActions.logoutUser()(callbackSpy).then(() => {
+          expect(callbackSpy.args[0]).to.deep.equal([{
+            type: authTypes.LOGOUT_REQUEST,
+          }]);
+          expect(logoutStub.called).to.be.true;
+          expect(callbackSpy.args[1]).to.deep.equal([{
+            type: authTypes.LOGOUT_SUCCESS,
+            action: { isLoggingOut: true },
+          }]);
+        });
       });
     });
   });

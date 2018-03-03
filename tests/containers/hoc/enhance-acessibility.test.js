@@ -41,7 +41,6 @@ describe('<AccessibleHOC />', () => {
   describe('makeAccessibleRoute { Container }', () => {
     let mockStore;
     let store;
-    let containerProps;
 
     beforeEach(() => {
       mockStore = configureStore([thunk]);
@@ -53,14 +52,12 @@ describe('<AccessibleHOC />', () => {
     });
 
     describe('.mapDispatchToProps', () => {
-      beforeEach(() => {
-        containerProps = wrapper.find(MockComponent).props();
-      });
-
       it('dispatches setA11yNavigatedMessage', () => {
-        expect(containerProps.setA11yNavigatedMessage('FooBar About')).deep.equal({
+        const { setA11yNavigatedMessage } = wrapper.find(MockComponent).props();
+        const action = setA11yNavigatedMessage('FooBar A11y');
+        expect(action).deep.equal({
           type: a11yTypes.SET_A11Y_NAVIGATED_MESSAGE,
-          message: 'FooBar About',
+          message: 'FooBar A11y',
         });
       });
     });

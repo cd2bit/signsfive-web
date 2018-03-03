@@ -9,7 +9,8 @@
     "mount": true,
     "shallow": true,
     "spy": true,
-    "stub": true
+    "stub": true,
+    "useFakeTimers": true
   },
   "rules": {
     "jsx-a11y/anchor-is-valid": [

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Member from '../../../src/components/about/member';
-import '../../../src/lib/teamLoader';
+import '../../../src/lib/team-loader';
 
-jest.mock('../../../src/lib/teamLoader', () => ({ default: path => path }));
+jest.mock('../../../src/lib/team-loader', () => ({ default: path => path }));
 
 describe('<Member />', () => {
   let wrapper;
