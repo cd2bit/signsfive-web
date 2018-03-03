@@ -5,7 +5,7 @@ import {
   ID_TOKEN,
   ACCESS_TOKEN,
   PROFILE,
-} from '../../src/utils//auth-constant';
+} from '../../src/constant';
 
 describe('AuthService', () => {
   let response;

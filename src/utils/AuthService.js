@@ -1,4 +1,10 @@
+/**
+ * @external {jwtDecode} https://www.npmjs.com/package/jwt-decode
+ */
 import jwtDecode from 'jwt-decode';
+/**
+ * @external {Promise} https://www.npmjs.com/package/promise
+ */
 import Promise from 'promise';
 
 import AUTH0 from './auth-web';
@@ -8,7 +14,7 @@ import {
   ACCESS_TOKEN,
   EXPIRES_AT,
   PROFILE,
-} from './auth-constant';
+} from '../constant';
 
 export default class AuthService {
   static login() {
