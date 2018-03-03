@@ -1,7 +1,7 @@
 # About SignsFive
 
-[![Build Status](https://travis-ci.org/deafchi/signsfive-web.svg?branch=master)](https://travis-ci.org/deafchi/signsfive-web)
-[![codecov](https://codecov.io/gh/deafchi/signsfive-web/branch/master/graph/badge.svg)](https://codecov.io/gh/deafchi/signsfive-web)
+[![Build Status](https://travis-ci.org/cd2bit/signsfive-web.svg?branch=master)](https://travis-ci.org/cd2bit/signsfive-web)
+[![codecov](https://codecov.io/gh/cd2bit/signsfive-web/branch/master/graph/badge.svg)](https://codecov.io/gh/cd2bit/signsfive-web)
 [![esdoc](docs/badge.svg)](https://esdoc.org)
 
 
@@ -11,7 +11,7 @@ We're working to make the search for STEM (Science, Technology, Engineering, Mat
 - [DEPLOYMENT](./documentation/GITFLOW.md)
 
 ### Discussion Summary
-Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, we summarize the discussions, which can be viewed at [deafchi/signsfive-meetings](https://github.com/deafchi/signsfive-meetings)
+Usually we meet on Tuesdays at [ChiHackNight](chihacknight.org). When possible, we summarize the discussions, which can be viewed at [cd2bit/signsfive-meetings](https://github.com/cd2bit/signsfive-meetings)
 
 ### SignsFive Team
 
